@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.system.mapper.ProductPictureMapper">
+    
+    <resultMap type="ProductPicture" id="ProductPictureResult">
+        <result property="id"    column="id"    />
+        <result property="productId"    column="product_id"    />
+        <result property="productPicture"    column="product_picture"    />
+        <result property="intro"    column="intro"    />
+    </resultMap>
+
+    <sql id="selectProductPictureVo">
+        select id, product_id, product_picture, intro from product_picture
+    </sql>
+
+    <select id="selectProductPictureList" parameterType="ProductPicture" resultMap="ProductPictureResult">
+        <include refid="selectProductPictureVo"/>
+        <where>  
+            <if test="productId != null "> and product_id = #{productId}</if>
+            <if test="productPicture != null  and productPicture != ''"> and product_picture = #{productPicture}</if>
+            <if test="intro != null  and intro != ''"> and intro = #{intro}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductPictureById" parameterType="Long" resultMap="ProductPictureResult">
+        <include refid="selectProductPictureVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProductPicture" parameterType="ProductPicture" useGeneratedKeys="true" keyProperty="id">
+        insert into product_picture
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productId != null">product_id,</if>
+            <if test="productPicture != null">product_picture,</if>
+            <if test="intro != null">intro,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productId != null">#{productId},</if>
+            <if test="productPicture != null">#{productPicture},</if>
+            <if test="intro != null">#{intro},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProductPicture" parameterType="ProductPicture">
+        update product_picture
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">product_id = #{productId},</if>
+            <if test="productPicture != null">product_picture = #{productPicture},</if>
+            <if test="intro != null">intro = #{intro},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductPictureById" parameterType="Long">
+        delete from product_picture where id = #{id}
+    </delete>
+
+    <delete id="deleteProductPictureByIds" parameterType="String">
+        delete from product_picture where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

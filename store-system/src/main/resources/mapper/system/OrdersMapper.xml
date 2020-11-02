@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.system.mapper.OrdersMapper">
+    
+    <resultMap type="Orders" id="OrdersResult">
+        <result property="id"    column="id"    />
+        <result property="orderId"    column="order_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="productId"    column="product_id"    />
+        <result property="productNum"    column="product_num"    />
+        <result property="productPrice"    column="product_price"    />
+        <result property="orderTime"    column="order_time"    />
+    </resultMap>
+
+    <sql id="selectOrdersVo">
+        select id, order_id, user_id, product_id, product_num, product_price, order_time from orders
+    </sql>
+
+    <select id="selectOrdersList" parameterType="Orders" resultMap="OrdersResult">
+        <include refid="selectOrdersVo"/>
+        <where>  
+            <if test="orderId != null "> and order_id = #{orderId}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="productId != null "> and product_id = #{productId}</if>
+            <if test="productNum != null "> and product_num = #{productNum}</if>
+            <if test="productPrice != null "> and product_price = #{productPrice}</if>
+            <if test="orderTime != null "> and order_time = #{orderTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectOrdersById" parameterType="Long" resultMap="OrdersResult">
+        <include refid="selectOrdersVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertOrders" parameterType="Orders" useGeneratedKeys="true" keyProperty="id">
+        insert into orders
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">order_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="productId != null">product_id,</if>
+            <if test="productNum != null">product_num,</if>
+            <if test="productPrice != null">product_price,</if>
+            <if test="orderTime != null">order_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">#{orderId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="productId != null">#{productId},</if>
+            <if test="productNum != null">#{productNum},</if>
+            <if test="productPrice != null">#{productPrice},</if>
+            <if test="orderTime != null">#{orderTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateOrders" parameterType="Orders">
+        update orders
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderId != null">order_id = #{orderId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="productId != null">product_id = #{productId},</if>
+            <if test="productNum != null">product_num = #{productNum},</if>
+            <if test="productPrice != null">product_price = #{productPrice},</if>
+            <if test="orderTime != null">order_time = #{orderTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteOrdersById" parameterType="Long">
+        delete from orders where id = #{id}
+    </delete>
+
+    <delete id="deleteOrdersByIds" parameterType="String">
+        delete from orders where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
