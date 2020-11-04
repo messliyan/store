@@ -15,9 +15,12 @@ import com.store.common.utils.StringUtils;
 import com.store.common.utils.sql.SqlUtil;
 import com.store.system.domain.A;
 import com.store.system.domain.B;
+import com.store.system.domain.BProductPicture;
 import com.store.system.domain.Category;
 import com.store.system.domain.Product;
+import com.store.system.domain.ProductPicture;
 import com.store.system.domain.WebProduct;
+import com.store.system.service.IProductPictureService;
 import com.store.system.service.IProductService;
 import com.store.system.service.ISysDictDataService;
 import java.util.ArrayList;
@@ -50,6 +53,45 @@ public class WebProductController extends BaseController
     @Autowired
     private ISysDictDataService dictDataService;
 
+    @Autowired
+    private IProductPictureService productPictureService;
+
+    /**
+     * id得到产品细节
+     */
+    @PostMapping("/getDetailsPicture")
+    public StoreResult getDetailsPicture(@RequestBody A a) {
+        ArrayList hashMaps=new ArrayList<BProductPicture>();
+        ProductPicture productPicture=new ProductPicture();
+        productPicture.setProductId(a.getProductID());
+
+
+        List<ProductPicture> list = productPictureService.selectProductPictureList(productPicture);
+
+        list.forEach(product1 -> {hashMaps.add(new BProductPicture(product1.getId(), product1.getProductId(), product1.getProductPicture(),product1.getIntro()));});
+
+
+        return StoreResult.success("id得到产品细节信息成功！","ProductPicture",hashMaps);
+    }
+
+
+    /**
+     * id得到产品细节
+     */
+    @PostMapping("/getDetails")
+    public StoreResult getDetails(@RequestBody A a) {
+
+        ArrayList hashMaps=new ArrayList<Category>();
+
+        Product product1 = productService.selectProductById(a.getProductID());
+
+        hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(), product1.getCategoryId(),
+            product1.getProductTitle(), product1.getProductIntro(), product1.getProductPicture(),
+            product1.getProductPrice(), product1.getProductSellingPrice(), product1.getProductNum(), product1.getProductSales()));
+
+
+        return StoreResult.success("id得到产品细节信息成功！","Product",hashMaps);
+    }
 
     /**
      * 分页获取所有的商品信息

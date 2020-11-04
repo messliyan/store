@@ -3,9 +3,8 @@ package com.store.system.domain;
 import java.util.Arrays;
 
 public class A{
-    private static final long serialVersionUID = 1L;
     String[] categoryName;
-
+    Long productID;
 
     public String[] getCategoryName() {
         return categoryName;
@@ -18,11 +17,16 @@ public class A{
     public A() {
     }
 
-    @Override
-    public String toString() {
-        return "A{" +
-            "categoryName=" + Arrays.toString(categoryName) +
-            '}';
+    public Long getProductID() {
+        return productID;
     }
 
+    public void setProductID(Long productID) {
+        this.productID = productID;
+    }
+
+    public A(String[] categoryName, Long productID) {
+        this.categoryName = categoryName;
+        this.productID = productID;
+    }
 }
