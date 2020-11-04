@@ -33,6 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="productSellingPrice != null "> and product_selling_price = #{productSellingPrice}</if>
             <if test="productNum != null "> and product_num = #{productNum}</if>
             <if test="productSales != null "> and product_sales = #{productSales}</if>
+            <if test="searchValue != null and searchValue != ''">
+                and (product_name like concat('%', #{searchValue}, '%') or product_intro like concat('%', #{searchValue}, '%')
+                or  product_title like concat('%', #{searchValue}, '%') )
+            </if>
         </where>
     </select>
 

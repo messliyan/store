@@ -16,10 +16,10 @@ public class WebTableDataInfo implements Serializable
     private long total;
 
     /** 列表数据 */
-    private List<?> rows;
+    private List<?> Product;
 
     /** 消息状态码 */
-    private int code;
+    private String code;
 
     /** 消息内容 */
     private String msg;
@@ -39,7 +39,7 @@ public class WebTableDataInfo implements Serializable
      */
     public WebTableDataInfo(List<?> list, int total)
     {
-        this.rows = list;
+        this.Product = list;
         this.total = total;
     }
 
@@ -53,22 +53,22 @@ public class WebTableDataInfo implements Serializable
         this.total = total;
     }
 
-    public List<?> getRows()
+    public List<?> getProduct()
     {
-        return rows;
+        return Product;
     }
 
-    public void setRows(List<?> rows)
+    public void setProduct(List<?> Product)
     {
-        this.rows = rows;
+        this.Product = Product;
     }
 
-    public int getCode()
+    public String getCode()
     {
         return code;
     }
 
-    public void setCode(int code)
+    public void setCode(String code)
     {
         this.code = code;
     }
@@ -81,5 +81,15 @@ public class WebTableDataInfo implements Serializable
     public void setMsg(String msg)
     {
         this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "WebTableDataInfo{" +
+            "total=" + total +
+            ", Product=" + Product +
+            ", code='" + code + '\'' +
+            ", msg='" + msg + '\'' +
+            '}';
     }
 }

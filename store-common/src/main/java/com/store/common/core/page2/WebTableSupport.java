@@ -32,18 +32,18 @@ public class WebTableSupport
     /**
      * 封装分页对象
      */
-    public static WebPageDomain getPageDomain()
+    public static WebPageDomain getPageDomain(int currentPage ,int pageSize)
     {
         WebPageDomain pageDomain = new WebPageDomain();
-        pageDomain.setCurrentPage(ServletUtils.getParameterToInt(PAGE_NUM));
-        pageDomain.setPageSize(ServletUtils.getParameterToInt(PAGE_SIZE));
+        pageDomain.setCurrentPage(currentPage);
+        pageDomain.setPageSize(pageSize);
         pageDomain.setOrderByColumn(ServletUtils.getParameter(ORDER_BY_COLUMN));
         pageDomain.setIsAsc(ServletUtils.getParameter(IS_ASC));
         return pageDomain;
     }
 
-    public static WebPageDomain buildPageRequest()
+    public static WebPageDomain buildPageRequest(int currentPage ,int pageSize)
     {
-        return getPageDomain();
+        return getPageDomain( currentPage , pageSize);
     }
 }

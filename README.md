@@ -2,7 +2,7 @@
 
 
 redis-server
-npm run serve
+npm run dev
 npm run dev
 
 

@@ -194,7 +194,7 @@ export default {
           pageSize: this.pageSize
         })
         .then(res => {
-          this.product = res.data.Product;
+          this.product = res.data.product;
           this.total = res.data.total;
         })
         .catch(err => {
@@ -210,7 +210,7 @@ export default {
           pageSize: this.pageSize
         })
         .then(res => {
-          this.product = res.data.Product;
+          this.product = res.data.product;
           this.total = res.data.total;
         })
         .catch(err => {

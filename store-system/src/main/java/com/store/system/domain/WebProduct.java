@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author store
  * @date 2020-10-27
  */
-public class WebProduct extends BaseEntity
+public class WebProduct
 {
     private static final long serialVersionUID = 1L;
 
