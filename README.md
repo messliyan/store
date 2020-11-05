@@ -6,6 +6,10 @@ npm run dev
 npm run dev
 
 
+测试用户 weoc123 密码weoc123
+系统管理员 admin admin123
+ 
+
 * 前端采用Vue、Element UI。
 * 后端采用Spring Boot、Spring Security、Redis & Jwt。
 * 权限认证使用Jwt，支持多终端认证系统。
