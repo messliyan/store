@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.system.mapper.ShoppingcartMapper">
+
+    <resultMap type="Shoppingcart" id="ShoppingcartResult">
+        <result property="id"    column="id"    />
+        <result property="user_id"    column="user_id"    />
+        <result property="product_id"    column="product_id"    />
+        <result property="num"    column="num"    />
+    </resultMap>
+
+    <sql id="selectShoppingcartVo">
+        select id, user_id, product_id, num from shoppingcart
+    </sql>
+
+    <select id="selectShoppingcartList" parameterType="Shoppingcart" resultMap="ShoppingcartResult">
+        <include refid="selectShoppingcartVo"/>
+        <where>
+            <if test="user_id != null "> and user_id = #{user_id}</if>
+            <if test="product_id != null "> and product_id = #{product_id}</if>
+            <if test="num != null "> and num = #{num}</if>
+        </where>
+    </select>
+
+    <select id="selectShoppingcartById" parameterType="Long" resultMap="ShoppingcartResult">
+        <include refid="selectShoppingcartVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertShoppingcart" parameterType="Shoppingcart" useGeneratedKeys="true" keyProperty="id">
+        insert into shoppingcart
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null">user_id,</if>
+            <if test="product_id != null">product_id,</if>
+            <if test="num != null">num,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="user_id != null">#{user_id},</if>
+            <if test="product_id != null">#{product_id},</if>
+            <if test="num != null">#{num},</if>
+         </trim>
+    </insert>
+
+    <update id="updateShoppingcart" parameterType="Shoppingcart">
+        update shoppingcart
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="user_id != null">user_id = #{user_id},</if>
+            <if test="product_id != null">product_id = #{product_id},</if>
+            <if test="num != null">num = #{num},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteShoppingcartById" parameterType="Long">
+        delete from shoppingcart where id = #{id}
+    </delete>
+
+    <delete id="deleteShoppingcartByIds" parameterType="String">
+        delete from shoppingcart where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
