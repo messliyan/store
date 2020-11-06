@@ -5,6 +5,7 @@ import com.store.system.domain.Category;
 import com.store.system.domain.Collect;
 import com.store.system.domain.Product;
 import com.store.system.domain.WebProduct;
+import com.store.system.service.IProductService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,7 +39,8 @@ public class ShoppingcartController extends BaseController
 {
     @Autowired
     private IShoppingcartService shoppingcartService;
-
+    @Autowired
+    private IProductService productService;
     /**
      * 查询个人购物车列表
      */
@@ -48,19 +50,19 @@ public class ShoppingcartController extends BaseController
 
         List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
 
-//        for (Shoppingcart collect1 : list) {
-//
-//            Product product1 = productService.selectProductById(collect1.getProduct_id());
-//            hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(),
-//                product1.getCategoryId(),
-//                product1.getProductTitle(), product1.getProductIntro(),
-//                product1.getProductPicture(),
-//                product1.getProductPrice(), product1.getProductSellingPrice(),
-//                product1.getProductNum(), product1.getProductSales()));
-//
-//        }
+        for (Shoppingcart collect1 : list) {
 
-        return StoreResult.success(" 获取用户的所有收藏商品信息成功！", "collectList", hashMaps);
+            Product product1 = productService.selectProductById(collect1.getProduct_id());
+            hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(),
+                product1.getCategoryId(),
+                product1.getProductTitle(), product1.getProductIntro(),
+                product1.getProductPicture(),
+                product1.getProductPrice(), product1.getProductSellingPrice(),
+                product1.getProductNum(), product1.getProductSales()));
+
+        }
+
+        return StoreResult.success(" 获取用户的所有收藏商品信息成功！", "shoppingCartData", hashMaps);
     }
     /**
      * 导出个人购物车列表
