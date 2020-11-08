@@ -7,6 +7,7 @@
  -->
 <template>
   <div id="app" name="app">
+
     <el-container>
       <!-- 顶部导航栏 -->
       <div class="topbar">
@@ -61,7 +62,7 @@
           </div>
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/goods">全部商品</el-menu-item>
-          <el-menu-item index="/about">关于我们</el-menu-item>
+<!--          <el-menu-item index="/about">关于我们</el-menu-item>-->
 
           <div class="so">
             <el-input placeholder="请输入搜索内容" v-model="search">
@@ -91,16 +92,12 @@
           <div class="ng-promise-box">
             <div class="ng-promise">
               <p class="text">
+                <a class="icon1" href="javascript:;">预约维修服务</a>
                 <a class="icon1" href="javascript:;">7天无理由退换货</a>
                 <a class="icon2" href="javascript:;">满99元全场免邮</a>
                 <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a>
               </p>
             </div>
-          </div>
-          <div class="github">
-            <a href="https://github.com/hai-27/vue-store" target="_blank">
-              <div class="github-but"></div>
-            </a>
           </div>
           <div class="mod_help">
             <p>
@@ -108,9 +105,8 @@
               <span>|</span>
               <router-link to="/goods">全部商品</router-link>
               <span>|</span>
-              <router-link to="/about">关于我们</router-link>
             </p>
-            <p class="coty">商城版权所有 &copy; 2012-2021</p>
+            <p class="coty">数码商城</p>
           </div>
         </div>
       </el-footer>
@@ -319,7 +315,7 @@ a:hover {
 .footer {
   width: 100%;
   text-align: center;
-  background: #2f2f2f;
+  background: #a7a0a0;
   padding-bottom: 20px;
 }
 .footer .ng-promise-box {
@@ -332,9 +328,9 @@ a:hover {
   line-height: 145px;
 }
 .footer .ng-promise-box .ng-promise p a {
-  color: #fff;
+  color: #e5dddd;
   font-size: 20px;
-  margin-right: 210px;
+  margin-right: 40px;
   padding-left: 44px;
   height: 40px;
   display: inline-block;
@@ -342,31 +338,21 @@ a:hover {
   text-decoration: none;
   background: url("./assets/imgs/us-icon.png") no-repeat left 0;
 }
-.footer .github {
-  height: 50px;
-  line-height: 50px;
-  margin-top: 20px;
-}
-.footer .github .github-but {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  background: url("./assets/imgs/github.png") no-repeat;
-}
+
 .footer .mod_help {
   text-align: center;
-  color: #888888;
+  color: #ffffff;
 }
 .footer .mod_help p {
   margin: 20px 0 16px 0;
 }
 
 .footer .mod_help p a {
-  color: #888888;
+  color: #fcf8f8;
   text-decoration: none;
 }
 .footer .mod_help p a:hover {
-  color: #fff;
+  color: #fafafa;
 }
 .footer .mod_help p span {
   padding: 0 22px;
