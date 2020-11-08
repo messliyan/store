@@ -48,7 +48,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2020 ruoyi.vip All Rights Reserved.</span>
+      <span>商城的后台管理系统</span>
     </div>
   </div>
 </template>
