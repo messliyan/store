@@ -9,7 +9,7 @@
     <version>1.0.0</version>
 
     <name>store</name>
-    <description>后台管理系统</description>
+    <description>商场系统</description>
 
     <properties>
         <store.version>1.0.0</store.version>
