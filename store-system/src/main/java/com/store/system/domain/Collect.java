@@ -28,7 +28,7 @@ public class Collect extends BaseEntity
 
     /** 收藏时间 */
     @Excel(name = "收藏时间")
-    private Long collectTime;
+    private Long collect_time;
 
     public void setId(Long id)
     {
@@ -57,23 +57,26 @@ public class Collect extends BaseEntity
     {
         return product_id;
     }
-    public void setCollectTime(Long collectTime)
-    {
-        this.collectTime = collectTime;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Long getCollectTime()
-    {
-        return collectTime;
+    public Long getCollect_time() {
+        return collect_time;
+    }
+
+    public void setCollect_time(Long collect_time) {
+        this.collect_time = collect_time;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("userId", getUser_id())
-            .append("productId", getProduct_id())
-            .append("collectTime", getCollectTime())
-            .toString();
+        return "Collect{" +
+            "id=" + id +
+            ", user_id=" + user_id +
+            ", product_id=" + product_id +
+            ", collect_time=" + collect_time +
+            '}';
     }
 }

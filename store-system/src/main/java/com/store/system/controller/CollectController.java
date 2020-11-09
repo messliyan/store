@@ -90,7 +90,7 @@ public class CollectController extends BaseController
     @PostMapping(value = "/addCollect")
     public StoreResult add(@RequestBody Collect collect)
     {
-        collect.setCollectTime(Long.valueOf(System.currentTimeMillis()));
+        collect.setCollect_time(Long.valueOf(System.currentTimeMillis()));
         collectService.insertCollect(collect);
         return StoreResult.success("添加收藏成功");
     }

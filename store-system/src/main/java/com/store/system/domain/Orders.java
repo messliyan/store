@@ -24,7 +24,7 @@ public class Orders extends BaseEntity
 
     /** 用户id */
     @Excel(name = "用户id")
-    private Long user_id;
+    private Long userId;
 
     /** 产品id */
     @Excel(name = "产品id")
@@ -60,15 +60,7 @@ public class Orders extends BaseEntity
     {
         return orderId;
     }
-    public void setUser_id(Long user_id)
-    {
-        this.user_id = user_id;
-    }
 
-    public Long getUser_id()
-    {
-        return user_id;
-    }
     public void setProductId(Long productId)
     {
         this.productId = productId;
@@ -106,16 +98,28 @@ public class Orders extends BaseEntity
         return orderTime;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("orderId", getOrderId())
-            .append("userId", getUser_id())
-            .append("productId", getProductId())
-            .append("productNum", getProductNum())
-            .append("productPrice", getProductPrice())
-            .append("orderTime", getOrderTime())
-            .toString();
+        return "Orders{" +
+            "id=" + id +
+            ", orderId=" + orderId +
+            ", userId=" + userId +
+            ", productId=" + productId +
+            ", productNum=" + productNum +
+            ", productPrice=" + productPrice +
+            ", orderTime=" + orderTime +
+            '}';
     }
 }

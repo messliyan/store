@@ -12,7 +12,7 @@ git clone https://github.com/hai-27/vue-store.git
 
 cd vue-store
 npm install
-
+cd
 3. Compiles and hot-reloads for development
 
 npm run serve

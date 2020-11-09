@@ -45,7 +45,7 @@ public class OrdersController extends BaseController
     /**
      *获取用户的所有订单信息
      */
-    @GetMapping("/getOrder")
+    @PostMapping("/getOrder")
     public StoreResult list(Orders orders) {
         ArrayList hashMaps = new ArrayList<Category>();
 
@@ -54,7 +54,7 @@ public class OrdersController extends BaseController
         for (Orders orders1 : list) {
 
             Product product1 = productService.selectProductById(orders1.getProductId());
-            hashMaps.add(new WebOrder(orders1.getId(), orders1.getOrderId(),orders1.getUser_id(),
+            hashMaps.add(new WebOrder(orders1.getId(), orders1.getOrderId(),orders1.getUserId(),
                 orders.getProductId(),
                 product1.getProductNum(),
                 product1.getProductPrice(), orders1.getOrderTime(),

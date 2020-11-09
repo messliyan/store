@@ -102,7 +102,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/login", "/captchaImage", "/users/findUserName","/users/register",
                     "/users/login","/users/login","/product/getPromoProduct","/product/getHotProduct","/res/carousel"
                         ,"/product/getAllProduct","/product/getCategory","/product/getProductByCategory","/product/getProductBySearch"
-                ,"/product/getDetails","/product/getDetailsPicture"
+                ,"/product/getDetails","/product/getDetailsPicture","/user/order/getOrder","/user/shoppingCart/getShoppingCart"
+                    ,"/user/shoppingCart/addShoppingCart","user/shoppingCart/deleteShoppingCart","/user/shoppingCart/updateShoppingCart"
                 ,"/user/collect/addCollect","/user/collect/getCollect","/user/collect/deleteCollect").anonymous()
                 .antMatchers(
                         HttpMethod.GET,

@@ -5,6 +5,7 @@ import com.store.system.domain.Category;
 import com.store.system.domain.Collect;
 import com.store.system.domain.Product;
 import com.store.system.domain.WebProduct;
+import com.store.system.domain.WebshoppingCart;
 import com.store.system.service.IProductService;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class ShoppingcartController extends BaseController
     /**
      * 查询个人购物车列表
      */
-    @GetMapping("/getShoppingCart")
+    @PostMapping("/getShoppingCart")
     public StoreResult list(Shoppingcart shoppingcart) {
         ArrayList hashMaps = new ArrayList<Category>();
 
@@ -53,17 +54,37 @@ public class ShoppingcartController extends BaseController
         for (Shoppingcart collect1 : list) {
 
             Product product1 = productService.selectProductById(collect1.getProduct_id());
-            hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(),
-                product1.getCategoryId(),
-                product1.getProductTitle(), product1.getProductIntro(),
+            hashMaps.add(new WebshoppingCart(collect1.getId(), collect1.getProduct_id(),
+                product1.getProductName(),
                 product1.getProductPicture(),
-                product1.getProductPrice(), product1.getProductSellingPrice(),
-                product1.getProductNum(), product1.getProductSales()));
+                product1.getProductPrice(), collect1.getNum(),
+                product1.getProductNum(), false));
 
         }
 
-        return StoreResult.success(" 获取用户的所有收藏商品信息成功！", "shoppingCartData", hashMaps);
+        return StoreResult.success(" 添加购物车成功！", "shoppingCartData", hashMaps);
     }
+
+    @PostMapping("/updateShoppingCart")
+    public StoreResult updateShoppingCart(Shoppingcart shoppingcart) {
+        ArrayList hashMaps = new ArrayList<Category>();
+
+        List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
+
+        for (Shoppingcart collect1 : list) {
+
+            Product product1 = productService.selectProductById(collect1.getProduct_id());
+            hashMaps.add(new WebshoppingCart(collect1.getId(), collect1.getProduct_id(),
+                product1.getProductName(),
+                product1.getProductPicture(),
+                product1.getProductPrice(), collect1.getNum(),
+                product1.getProductNum(), false));
+
+        }
+
+        return StoreResult.success(" 添加购物车成功！", "shoppingCartData", hashMaps);
+    }
+
     /**
      * 导出个人购物车列表
      */
