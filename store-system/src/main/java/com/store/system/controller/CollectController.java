@@ -45,8 +45,7 @@ public class CollectController extends BaseController
      * 查询个人收藏列表
      */
     @PostMapping("/getCollect")
-    public StoreResult list(Collect collect)
-    {
+    public StoreResult list(Collect collect){
         ArrayList hashMaps=new ArrayList<Category>();
 
         List<Collect> list = collectService.selectCollectList(collect);
@@ -57,7 +56,6 @@ public class CollectController extends BaseController
             hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(), product1.getCategoryId(),
                 product1.getProductTitle(), product1.getProductIntro(), product1.getProductPicture(),
                 product1.getProductPrice(), product1.getProductSellingPrice(), product1.getProductNum(), product1.getProductSales()));
-
         }
 
 

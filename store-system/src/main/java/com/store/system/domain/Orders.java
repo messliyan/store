@@ -24,7 +24,7 @@ public class Orders extends BaseEntity
 
     /** 用户id */
     @Excel(name = "用户id")
-    private Long userId;
+    private Long user_id;
 
     /** 产品id */
     @Excel(name = "产品id")
@@ -60,14 +60,14 @@ public class Orders extends BaseEntity
     {
         return orderId;
     }
-    public void setUserId(Long userId)
+    public void setUser_id(Long user_id)
     {
-        this.userId = userId;
+        this.user_id = user_id;
     }
 
-    public Long getUserId()
+    public Long getUser_id()
     {
-        return userId;
+        return user_id;
     }
     public void setProductId(Long productId)
     {
@@ -111,7 +111,7 @@ public class Orders extends BaseEntity
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("orderId", getOrderId())
-            .append("userId", getUserId())
+            .append("userId", getUser_id())
             .append("productId", getProductId())
             .append("productNum", getProductNum())
             .append("productPrice", getProductPrice())
