@@ -1,14 +1,12 @@
 package com.store.system.controller;
 
 import com.store.common.core.domain.StoreResult;
-import com.store.system.domain.Category;
-import com.store.system.domain.Collect;
-import com.store.system.domain.Product;
-import com.store.system.domain.WebOrder;
-import com.store.system.domain.WebProduct;
+import com.store.system.domain.*;
 import com.store.system.service.IProductService;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.store.system.service.IShoppingcartService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +21,8 @@ import com.store.common.annotation.Log;
 import com.store.common.core.controller.BaseController;
 import com.store.common.core.domain.AjaxResult;
 import com.store.common.enums.BusinessType;
-import com.store.system.domain.Orders;
 import com.store.system.service.IOrdersService;
 import com.store.common.utils.poi.ExcelUtil;
-import com.store.common.core.page.TableDataInfo;
 
 /**
  * 订单管理Controller
@@ -42,27 +38,30 @@ public class OrdersController extends BaseController
     private IOrdersService ordersService;
     @Autowired
     private IProductService productService;
+
+    @Autowired
+    private IShoppingcartService shoppingcartService;
     /**
      *获取用户的所有订单信息
      */
     @PostMapping("/getOrder")
     public StoreResult list(Orders orders) {
-        ArrayList hashMaps = new ArrayList<Category>();
+        ArrayList hashMaps2 = new ArrayList<WebOrder>();
 
         List<Orders> list = ordersService.selectOrdersList(orders);
 
         for (Orders orders1 : list) {
-
+            ArrayList hashMaps = new ArrayList<WebOrder>();
             Product product1 = productService.selectProductById(orders1.getProductId());
             hashMaps.add(new WebOrder(orders1.getId(), orders1.getOrderId(),orders1.getUserId(),
-                orders.getProductId(),
-                product1.getProductNum(),
-                product1.getProductPrice(), orders1.getOrderTime(),
+                    orders1.getProductId(),
+                    orders1.getProductNum(),
+                    orders1.getProductPrice(), orders1.getOrderTime(),
                 product1.getProductName(),
                 product1.getProductPicture()));
+            hashMaps2.add(hashMaps);
         }
-
-        return StoreResult.success(" 获取用户的所有订单信息成功！", "orders", hashMaps);
+        return StoreResult.success(" 获取用户的所有订单信息成功！", "orders", hashMaps2);
     }
 
     /**
@@ -91,10 +90,34 @@ public class OrdersController extends BaseController
     /**
      * 新增订单管理
      */
-    @PostMapping("/addOrder")
-    public AjaxResult add(@RequestBody Orders orders)
-    {
-        return toAjax(ordersService.insertOrders(orders));
+  @PostMapping("/addOrder")
+    public StoreResult addShoppingCart( @RequestBody WebOrd webOrd) {
+
+
+        for (WebOrders orders:
+                webOrd.getProducts()) {
+            ordersService.insertOrders(new Orders(){{
+                setOrderId(orders.getProductID()+orders.getId()+System.currentTimeMillis());
+                setOrderTime(System.currentTimeMillis());
+                setProductId(orders.getProductID());
+                setProductNum(orders.getNum());
+                setProductPrice(orders.getPrice());
+                setUserId(webOrd.getUser_id());
+            }});
+
+            List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(
+                    new Shoppingcart(){{
+                        setProduct_id(orders.getProductID());
+                        setUser_id(webOrd.getUser_id());
+                    }}
+            );
+            shoppingcartService.deleteShoppingcartById(list.get(0).getId());
+        }
+
+
+
+
+        return StoreResult.success(" 购买成功！");
     }
 
     /**

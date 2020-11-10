@@ -72,17 +72,43 @@ public class ShoppingcartController extends BaseController
     }
 
     @PostMapping("/deleteShoppingCart")
-    public StoreResult deleteShoppingCart(Shoppingcart shoppingcart) {
-        shoppingcartService.updateShoppingcart(shoppingcart);
+    public StoreResult deleteShoppingCart(@RequestBody Shoppingcart shoppingcart) {
+        List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
 
-        return StoreResult.success(" 更新购物车商品数量成功！");
+        shoppingcartService.deleteShoppingcartById(list.get(0).getId());
+
+        return StoreResult.success(" 删除购物车成功成功！");
     }
 
     @PostMapping("/addShoppingCart")
-    public StoreResult addShoppingCart(Shoppingcart shoppingcart) {
-        shoppingcartService.updateShoppingcart(shoppingcart);
+    public StoreResult addShoppingCart(@RequestBody Shoppingcart shoppingcart) {
+        ArrayList hashMaps = new ArrayList<Category>();
 
-        return StoreResult.success(" 更新购物车商品数量成功！");
+        List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
+
+        if ( list.size()>0) {
+            list.get(0).setNum(list.get(0).getNum() + 1);
+            shoppingcartService.updateShoppingcart(list.get(0));
+        }
+        else
+        { shoppingcart.setNum(Long.valueOf(1));
+            shoppingcartService.insertShoppingcart(shoppingcart);
+        }
+
+        List<Shoppingcart> list2 = shoppingcartService.selectShoppingcartList(shoppingcart);
+
+        for (Shoppingcart collect1 : list2) {
+
+            Product product1 = productService.selectProductById(collect1.getProduct_id());
+            hashMaps.add(new WebshoppingCart(collect1.getId(), collect1.getProduct_id(),
+                    product1.getProductName(),
+                    product1.getProductPicture(),
+                    product1.getProductPrice(), collect1.getNum(),
+                    product1.getProductNum(), false));
+
+        }
+
+        return StoreResult.success(" 插入购物车信息成功！","shoppingCartData", hashMaps);
     }
 
     /**
