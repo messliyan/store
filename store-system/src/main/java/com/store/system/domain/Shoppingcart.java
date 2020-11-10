@@ -19,61 +19,58 @@ public class Shoppingcart extends BaseEntity
     private Long id;
 
     /** 用户id */
-    @Excel(name = "用户id")
+
     private Long user_id;
 
     /** 产品id */
-    @Excel(name = "产品id")
     private Long product_id;
 
     /** 购买数量 */
-    @Excel(name = "购买数量")
     private Long num;
 
-    public void setId(Long id)
-    {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId()
-    {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
-    public void setUser_id(Long user_id)
-    {
+
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Long getUser_id()
-    {
-        return user_id;
+    public Long getProduct_id() {
+        return product_id;
     }
-    public void setProduct_id(Long product_id)
-    {
+
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 
-    public Long getProduct_id()
-    {
-        return product_id;
-    }
-    public void setNum(Long num)
-    {
-        this.num = num;
+    public Long getNum() {
+        return num;
     }
 
-    public Long getNum()
-    {
-        return num;
+    public void setNum(Long num) {
+        this.num = num;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("userId", getUser_id())
-            .append("productId", getProduct_id())
-            .append("num", getNum())
-            .toString();
+        return "Shoppingcart{" +
+            "id=" + id +
+            ", user_id=" + user_id +
+            ", product_id=" + product_id +
+            ", num=" + num +
+            '}';
     }
 }

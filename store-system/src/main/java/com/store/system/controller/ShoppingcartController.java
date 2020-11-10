@@ -46,7 +46,7 @@ public class ShoppingcartController extends BaseController
      * 查询个人购物车列表
      */
     @PostMapping("/getShoppingCart")
-    public StoreResult list(Shoppingcart shoppingcart) {
+    public StoreResult list( Shoppingcart shoppingcart) {
         ArrayList hashMaps = new ArrayList<Category>();
 
         List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
@@ -66,23 +66,23 @@ public class ShoppingcartController extends BaseController
     }
 
     @PostMapping("/updateShoppingCart")
-    public StoreResult updateShoppingCart(Shoppingcart shoppingcart) {
-        ArrayList hashMaps = new ArrayList<Category>();
+    public StoreResult updateShoppingCart(@RequestBody  Shoppingcart shoppingcart) {
+        shoppingcartService.updateShoppingcart(shoppingcart);
+        return StoreResult.success(" 更新购物车商品数量成功！");
+    }
 
-        List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
+    @PostMapping("/deleteShoppingCart")
+    public StoreResult deleteShoppingCart(Shoppingcart shoppingcart) {
+        shoppingcartService.updateShoppingcart(shoppingcart);
 
-        for (Shoppingcart collect1 : list) {
+        return StoreResult.success(" 更新购物车商品数量成功！");
+    }
 
-            Product product1 = productService.selectProductById(collect1.getProduct_id());
-            hashMaps.add(new WebshoppingCart(collect1.getId(), collect1.getProduct_id(),
-                product1.getProductName(),
-                product1.getProductPicture(),
-                product1.getProductPrice(), collect1.getNum(),
-                product1.getProductNum(), false));
+    @PostMapping("/addShoppingCart")
+    public StoreResult addShoppingCart(Shoppingcart shoppingcart) {
+        shoppingcartService.updateShoppingcart(shoppingcart);
 
-        }
-
-        return StoreResult.success(" 添加购物车成功！", "shoppingCartData", hashMaps);
+        return StoreResult.success(" 更新购物车商品数量成功！");
     }
 
     /**

@@ -71,7 +71,7 @@ public class WebProductController extends BaseController
         list.forEach(product1 -> {hashMaps.add(new BProductPicture(product1.getId(), product1.getProductId(), product1.getProductPicture(),product1.getIntro()));});
 
 
-        return StoreResult.success("id得到产品细节信息成功！","ProductPicture",hashMaps);
+        return StoreResult.success("得到产品细节信息成功！","ProductPicture",hashMaps);
     }
 
 
@@ -90,7 +90,7 @@ public class WebProductController extends BaseController
             product1.getProductPrice(), product1.getProductSellingPrice(), product1.getProductNum(), product1.getProductSales()));
 
 
-        return StoreResult.success("id得到产品细节信息成功！","Product",hashMaps);
+        return StoreResult.success("得到产品细节信息成功！","Product",hashMaps);
     }
 
     /**
@@ -141,7 +141,7 @@ public class WebProductController extends BaseController
         sysDictDataList.forEach(sysDictData -> {hashMaps.add(new Category(sysDictData.getDictSort(),sysDictData.getDictLabel()));});
 
 
-        return StoreResult.success("获取商品分类成功！","category",hashMaps);
+        return StoreResult.success("获取商品成功！","category",hashMaps);
     }
 
 
