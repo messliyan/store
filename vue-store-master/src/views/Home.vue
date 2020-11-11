@@ -6,6 +6,7 @@
  * @LastEditTime: 2020-02-27 13:36:12
  -->
 <template>
+
   <div class="home" id="home" name="home">
     <!-- 轮播图 -->
     <div class="block">
@@ -15,6 +16,11 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <ul>
+      <li>
+        <img height="122px" :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c3b86ede4dd31d7c126d56fbdde4f855.jpg'" alt />
+      </li>
+    </ul>
     <!-- 轮播图END -->
     <div class="main-box">
       <div class="main">
@@ -22,6 +28,11 @@
         <div class="phone">
           <div class="box-hd">
             <div class="title">手机</div>
+            <div class="more">
+              <MyMenu :val="2" >
+                <span slot="1" ><router-link  to="/goods">全部商品</router-link></span>
+              </MyMenu>
+            </div>
           </div>
           <div class="box-bd">
             <div class="promo-list">
@@ -35,7 +46,11 @@
           </div>
         </div>
         <!-- 手机商品展示区域END -->
-
+        <ul>
+          <li>
+            <img height="122px" :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e99b88a8a39fbbd55177aea30e640557.jpg'" alt />
+          </li>
+        </ul>
         <!-- 家电商品展示区域 -->
         <div class="appliance" id="promo-menu">
           <div class="box-hd">
@@ -51,10 +66,10 @@
             <div class="promo-list">
               <ul>
                 <li>
-                  <img :src="$target +'public/imgs/appliance/appliance-promo1.png'" />
+                  <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f256b81e4233333692eece77ed06ebc2.jpg'" />
                 </li>
                 <li>
-                  <img :src="$target +'public/imgs/appliance/appliance-promo2.png'" />
+                  <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/86567ac179a32fa9af05f89a45e57cbe.jpg'" />
                 </li>
               </ul>
             </div>
@@ -64,7 +79,11 @@
           </div>
         </div>
         <!-- 家电商品展示区域END -->
-
+        <ul>
+          <li>
+            <img height="122px" :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c72e5e1435a39f97e75841f7c5fe4467.jpg?'" alt />
+          </li>
+        </ul>
         <!-- 配件商品展示区域 -->
         <div class="accessory" id="promo-menu">
           <div class="box-hd">
@@ -81,10 +100,10 @@
             <div class="promo-list">
               <ul>
                 <li>
-                  <img :src="$target +'public/imgs/accessory/accessory-promo1.png'" alt />
+                  <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9f64bbd58c3f5001bdf0688894f22cb6.jpg'" alt />
                 </li>
                 <li>
-                  <img :src="$target +'public/imgs/accessory/accessory-promo2.png'" alt />
+                  <img :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ffe4182f1d9a5befdf2380ec90ae1620.jpg'" alt />
                 </li>
               </ul>
             </div>

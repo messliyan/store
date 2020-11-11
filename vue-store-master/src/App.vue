@@ -9,16 +9,27 @@
   <div id="app" name="app">
 
     <el-container>
+      <ul>
+        <li>
+          <img height="122px" :src="$target +'public/imgs/one.png'" alt />
+        </li>
+      </ul>
       <!-- 顶部导航栏 -->
       <div class="topbar">
         <div class="nav">
           <ul>
-            <li v-if="!this.$store.getters.getUser">
+            <li class="a">
+              <router-link to="/">首页</router-link>
+            </li>
+            <li class="a">
+              <router-link to="/goods">全部商品</router-link>
+            </li>
+            <li v-if="!this.$store.getters.getUser" class="b">
               <el-button type="text" @click="login">登录</el-button>
               <span class="sep">|</span>
               <el-button type="text" @click="register = true">注册</el-button>
             </li>
-            <li v-else>
+            <li v-else class="b">
               欢迎
               <el-popover placement="top" width="180" v-model="visible">
                 <p>确定退出登录吗？</p>
@@ -29,13 +40,13 @@
                 <el-button type="text" slot="reference">{{this.$store.getters.getUser.userName}}</el-button>
               </el-popover>
             </li>
-            <li>
+            <li class="b">
               <router-link to="/order">我的订单</router-link>
             </li>
-            <li>
+            <li class="b">
               <router-link to="/collect">我的收藏</router-link>
             </li>
-            <li :class="getNum > 0 ? 'shopCart-full' : 'shopCart'">
+            <li :class="getNum > 0 ? 'shopCart-full' : 'shopCart'" class="b">
               <router-link to="/shoppingCart">
                 <i class="el-icon-shopping-cart-full"></i> 购物车
                 <span class="num">({{getNum}})</span>
@@ -57,7 +68,7 @@
         >
           <div class="logo">
             <router-link to="/">
-              <img src="./assets/imgs/logo.png" alt />
+              <img src="./assets/imgs/logo.png" height="70px" alt />
             </router-link>
           </div>
           <el-menu-item index="/">首页</el-menu-item>
@@ -106,9 +117,13 @@
               <router-link to="/goods">全部商品</router-link>
               <span>|</span>
             </p>
-            <p class="coty">数码商城</p>
           </div>
         </div>
+        <ul>
+          <li>
+            <img height="122px" :src="$target+'public/imgs/two.png'" alt />
+          </li>
+        </ul>
       </el-footer>
       <!-- 底栏容器END -->
     </el-container>
@@ -245,9 +260,14 @@ a:hover {
   width: 1225px;
   margin: 0 auto;
 }
-.topbar .nav ul {
+.topbar .nav ul .b{
   float: right;
 }
+
+.topbar .nav ul .a{
+  float: left;
+}
+
 .topbar .nav li {
   float: left;
   height: 40px;
