@@ -1,6 +1,10 @@
 package com.store.system.controller;
 
+import com.store.system.domain.ProductPicture;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,16 +36,21 @@ public class CarouselController extends BaseController
 {
     @Autowired
     private ICarouselService carouselService;
-
+    @Value("${server.port}")
+    private int port;
     /**
      * 查询轮播图片管理列表
      */
     @PreAuthorize("@ss.hasPermi('system:carousel:list')")
     @GetMapping("/list")
-    public TableDataInfo list(Carousel carousel)
-    {
+    public TableDataInfo list(Carousel carousel) throws UnknownHostException {
         startPage();
         List<Carousel> list = carouselService.selectCarouselList(carousel);
+        String IP = InetAddress.getLocalHost().getHostAddress();
+        for (Carousel pro:list
+        ) {
+            pro.setImgpath("http://"+IP+":"+port+"/"+pro.getImgpath());
+        }
         return getDataTable(list);
     }
 

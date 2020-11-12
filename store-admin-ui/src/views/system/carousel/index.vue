@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="轮播图片路径" prop="imgpath">
+      <el-form-item label="轮播图片序号" prop="imgpath">
         <el-input
           v-model="queryParams.imgpath"
           placeholder="请输入轮播图片路径"
@@ -10,10 +10,10 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="轮播图片秒速" prop="describes">
+      <el-form-item label="轮播图片描述" prop="describes">
         <el-input
           v-model="queryParams.describes"
-          placeholder="请输入轮播图片秒速"
+          placeholder="请输入轮播图片描述"
           clearable
           size="small"
           @keyup.enter.native="handleQuery"
@@ -69,9 +69,14 @@
 
     <el-table v-loading="loading" :data="carouselList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="轮播图片地址" align="center" prop="carouselId" />
-      <el-table-column label="轮播图片路径" align="center" prop="imgpath" />
-      <el-table-column label="轮播图片秒速" align="center" prop="describes" />
+      <el-table-column label="轮播图片序号" align="center" prop="carouselId" />
+      <el-table-column  label="轮播图片" align="center" prop="imgpath" >
+        <template slot-scope="scope">
+          <el-image :src="scope.row.imgpath">
+          </el-image>
+        </template>
+      </el-table-column>
+      <el-table-column label="轮播图片描述" align="center" prop="describes" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -91,7 +96,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -106,8 +111,8 @@
         <el-form-item label="轮播图片路径" prop="imgpath">
           <el-input v-model="form.imgpath" placeholder="请输入轮播图片路径" />
         </el-form-item>
-        <el-form-item label="轮播图片秒速" prop="describes">
-          <el-input v-model="form.describes" placeholder="请输入轮播图片秒速" />
+        <el-form-item label="轮播图片描述" prop="describes">
+          <el-input v-model="form.describes" placeholder="请输入轮播图片描述" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -158,7 +163,7 @@ export default {
           { required: true, message: "轮播图片路径不能为空", trigger: "blur" }
         ],
         describes: [
-          { required: true, message: "轮播图片秒速不能为空", trigger: "blur" }
+          { required: true, message: "轮播图片描述不能为空", trigger: "blur" }
         ]
       }
     };

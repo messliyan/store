@@ -8,10 +8,13 @@
 <template>
   <div id="app" name="app">
 
-    <el-container>
+    <el-container class="container">
       <ul>
-        <li>
-          <img height="122px" :src="$target +'public/imgs/one.png'" alt />
+        <li class="devli">
+          <el-image
+              style="width: 100%; height: 100%"
+              :src="$target +'public/imgs/one.png'"
+              :fit="fit"></el-image>
         </li>
       </ul>
       <!-- 顶部导航栏 -->
@@ -48,8 +51,19 @@
             </li>
             <li :class="getNum > 0 ? 'shopCart-full' : 'shopCart'" class="b">
               <router-link to="/shoppingCart">
-                <i class="el-icon-shopping-cart-full"></i> 购物车
-                <span class="num">({{getNum}})</span>
+              <el-dropdown >
+              <el-button type="primary" >
+                  <i class="el-icon-shopping-cart-full" ></i> 购物车
+                  <span class="num">({{getNum}})</span>
+              </el-button>
+              <el-dropdown-menu slot="dropdown" v-for="(item) in getShoppingCart" :key="item.id">
+                <router-link to="/shoppingCart">
+                <el-dropdown-item split-button="true" >
+                  {{item.productName}}   （ {{item.num}} ）</el-dropdown-item>
+                </router-link>
+              </el-dropdown-menu>
+
+              </el-dropdown>
               </router-link>
             </li>
           </ul>
@@ -76,6 +90,7 @@
 <!--          <el-menu-item index="/about">关于我们</el-menu-item>-->
 
           <div class="so">
+
             <el-input placeholder="请输入搜索内容" v-model="search">
               <el-button slot="append" icon="el-icon-search" @click="searchClick"></el-button>
             </el-input>
@@ -120,8 +135,11 @@
           </div>
         </div>
         <ul>
-          <li>
-            <img height="122px" :src="$target+'public/imgs/two.png'" alt />
+          <li class="devli">
+            <el-image
+                style="width: 100%; height: 100%"
+                :src="$target +'public/imgs/two.png'"
+                :fit="fit"></el-image>
           </li>
         </ul>
       </el-footer>
@@ -166,7 +184,7 @@ export default {
     }, 1000 * 60); */
   },
   computed: {
-    ...mapGetters(["getUser", "getNum"])
+    ...mapGetters(["getUser", "getNum","getShoppingCart"])
   },
   watch: {
     // 获取vuex的登录状态
@@ -249,12 +267,12 @@ a:hover {
   text-decoration: none;
 }
 /* 全局CSS END */
-
 /* 顶部导航栏CSS */
 .topbar {
   height: 40px;
   background-color: #3d3d3d;
   margin-bottom: 20px;
+  z-index:999;
 }
 .topbar .nav {
   width: 1225px;
@@ -267,7 +285,15 @@ a:hover {
 .topbar .nav ul .a{
   float: left;
 }
+.devli{
 
+  /*width: 200px;*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  font-size: 14px;
+  text-align: center;
+}
 .topbar .nav li {
   float: left;
   height: 40px;
