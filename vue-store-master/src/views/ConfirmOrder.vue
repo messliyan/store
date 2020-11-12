@@ -137,15 +137,15 @@ export default {
       address: [
         {
           id: 1,
-          name: "陈同学",
-          phone: "13580018623",
-          address: "广东 广州市 白云区 江高镇 广东白云学院"
+          name: "何大柏",
+          phone: "1545145745224",
+          address: "山西 太原市 万柏林区 河西镇***"
         },
         {
           id: 2,
           name: "陈同学",
           phone: "13580018623",
-          address: "广东 茂名市 化州市 杨梅镇 ***"
+          address: "山西 太原市 小店区 河东镇 ***"
         }
       ]
     };
