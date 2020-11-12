@@ -46,7 +46,7 @@ public class ShoppingcartController extends BaseController
      * 查询个人购物车列表
      */
     @PostMapping("/getShoppingCart")
-    public StoreResult list( Shoppingcart shoppingcart) {
+    public StoreResult list(@RequestBody  Shoppingcart shoppingcart) {
         ArrayList hashMaps = new ArrayList<Category>();
 
         List<Shoppingcart> list = shoppingcartService.selectShoppingcartList(shoppingcart);
@@ -62,7 +62,7 @@ public class ShoppingcartController extends BaseController
 
         }
 
-        return StoreResult.success(" 添加购物车成功！", "shoppingCartData", hashMaps);
+        return StoreResult.success(" 得到购物车成功！", "shoppingCartData", hashMaps);
     }
 
     @PostMapping("/updateShoppingCart")

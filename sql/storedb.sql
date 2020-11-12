@@ -11,7 +11,7 @@
  Target Server Version : 50561
  File Encoding         : 65001
 
- Date: 05/11/2020 20:43:36
+ Date: 12/11/2020 20:55:56
 */
 
 SET NAMES utf8mb4;
@@ -70,12 +70,11 @@ CREATE TABLE `collect`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_collect_user_id`(`user_id`) USING BTREE,
   INDEX `FK_collect_id`(`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of collect
 -- ----------------------------
-INSERT INTO `collect` VALUES (3, 101, 6, 1604577798140);
 
 -- ----------------------------
 -- Table structure for gen_table
@@ -390,11 +389,13 @@ CREATE TABLE `shoppingcart`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_user_id`(`user_id`) USING BTREE,
   INDEX `FK_shoppingCart_id`(`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of shoppingcart
 -- ----------------------------
+INSERT INTO `shoppingcart` VALUES (1, 3, 2, 1);
+INSERT INTO `shoppingcart` VALUES (3, 101, 22, 1);
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -615,32 +616,12 @@ CREATE TABLE `sys_logininfor`  (
   `msg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '提示消息',
   `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 121 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_logininfor
 -- ----------------------------
-INSERT INTO `sys_logininfor` VALUES (100, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '用户不存在/密码错误', '2020-10-26 20:12:31');
-INSERT INTO `sys_logininfor` VALUES (101, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '用户不存在/密码错误', '2020-10-26 20:12:39');
-INSERT INTO `sys_logininfor` VALUES (102, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '用户不存在/密码错误', '2020-10-26 20:12:50');
-INSERT INTO `sys_logininfor` VALUES (103, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '验证码已失效', '2020-10-26 20:15:20');
-INSERT INTO `sys_logininfor` VALUES (104, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-26 20:15:25');
-INSERT INTO `sys_logininfor` VALUES (105, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-26 20:21:45');
-INSERT INTO `sys_logininfor` VALUES (106, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-26 20:38:31');
-INSERT INTO `sys_logininfor` VALUES (107, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '1', '验证码错误', '2020-10-27 09:22:52');
-INSERT INTO `sys_logininfor` VALUES (108, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 09:22:59');
-INSERT INTO `sys_logininfor` VALUES (109, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 10:07:42');
-INSERT INTO `sys_logininfor` VALUES (110, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 11:02:25');
-INSERT INTO `sys_logininfor` VALUES (111, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 11:54:22');
-INSERT INTO `sys_logininfor` VALUES (112, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 13:48:32');
-INSERT INTO `sys_logininfor` VALUES (113, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 14:27:48');
-INSERT INTO `sys_logininfor` VALUES (114, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-27 16:04:34');
-INSERT INTO `sys_logininfor` VALUES (115, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-31 19:01:21');
-INSERT INTO `sys_logininfor` VALUES (116, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-10-31 19:41:18');
-INSERT INTO `sys_logininfor` VALUES (117, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-11-02 18:57:52');
-INSERT INTO `sys_logininfor` VALUES (118, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-11-02 20:32:55');
-INSERT INTO `sys_logininfor` VALUES (119, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-11-04 21:44:40');
-INSERT INTO `sys_logininfor` VALUES (120, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-11-05 19:10:26');
+INSERT INTO `sys_logininfor` VALUES (1, 'admin', '127.0.0.1', '内网IP', 'Chrome', 'Windows 10', '0', '登录成功', '2020-11-12 19:36:13');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -666,23 +647,19 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1103 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单权限表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1106 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单权限表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES (1, '系统管理', 0, 1, 'system', NULL, 1, 0, 'M', '0', '0', '', 'system', 'admin', '2020-10-26 12:06:01', '', NULL, '系统管理目录');
-INSERT INTO `sys_menu` VALUES (2, '系统监控', 0, 2, 'monitor', NULL, 1, 0, 'M', '0', '0', '', 'monitor', 'admin', '2020-10-26 12:06:01', '', NULL, '系统监控目录');
-INSERT INTO `sys_menu` VALUES (3, '系统工具', 0, 3, 'tool', NULL, 1, 0, 'M', '0', '0', '', 'tool', 'admin', '2020-10-26 12:06:01', '', NULL, '系统工具目录');
-INSERT INTO `sys_menu` VALUES (100, '用户管理', 1, 1, 'user', 'system/user/index', 1, 0, 'C', '0', '0', 'system:user:list', 'user', 'admin', '2020-10-26 12:06:01', '', NULL, '用户管理菜单');
-INSERT INTO `sys_menu` VALUES (102, '菜单管理', 1, 3, 'menu', 'system/menu/index', 1, 0, 'C', '0', '0', 'system:menu:list', 'tree-table', 'admin', '2020-10-26 12:06:01', '', NULL, '菜单管理菜单');
-INSERT INTO `sys_menu` VALUES (105, '字典管理', 1, 6, 'dict', 'system/dict/index', 1, 0, 'C', '0', '0', 'system:dict:list', 'dict', 'admin', '2020-10-26 12:06:01', '', NULL, '字典管理菜单');
-INSERT INTO `sys_menu` VALUES (106, '参数设置', 1, 7, 'config', 'system/config/index', 1, 0, 'C', '0', '0', 'system:config:list', 'edit', 'admin', '2020-10-26 12:06:01', '', NULL, '参数设置菜单');
-INSERT INTO `sys_menu` VALUES (108, '日志管理', 1, 9, 'log', 'system/log/index', 1, 0, 'M', '0', '0', '', 'log', 'admin', '2020-10-26 12:06:01', '', NULL, '日志管理菜单');
+INSERT INTO `sys_menu` VALUES (1, '商品管理', 0, 2, 'system', '', 1, 0, 'M', '0', '0', '', 'shopping', 'admin', '2020-10-26 12:06:01', 'admin', '2020-11-12 16:46:03', '系统管理目录');
+INSERT INTO `sys_menu` VALUES (2, '系统监控', 0, 4, 'monitor', NULL, 1, 0, 'M', '0', '0', '', 'monitor', 'admin', '2020-10-26 12:06:01', '', NULL, '系统监控目录');
+INSERT INTO `sys_menu` VALUES (100, '用户管理', 1104, 1, 'user', 'system/user/index', 1, 0, 'C', '0', '0', 'system:user:list', 'user', 'admin', '2020-10-26 12:06:01', 'admin', '2020-11-09 20:22:32', '用户管理菜单');
+INSERT INTO `sys_menu` VALUES (102, '菜单管理', 1, 3, 'menu', 'system/menu/index', 1, 0, 'C', '0', '1', 'system:menu:list', 'tree-table', 'admin', '2020-10-26 12:06:01', '', NULL, '菜单管理菜单');
+INSERT INTO `sys_menu` VALUES (106, '参数设置', 1103, 7, 'config', 'system/config/index', 1, 0, 'C', '0', '0', 'system:config:list', 'edit', 'admin', '2020-10-26 12:06:01', 'admin', '2020-11-09 20:20:26', '参数设置菜单');
+INSERT INTO `sys_menu` VALUES (108, '日志管理', 1103, 9, 'log', 'system/log/index', 1, 0, 'M', '0', '0', '', 'log', 'admin', '2020-10-26 12:06:01', 'admin', '2020-11-09 20:20:37', '日志管理菜单');
 INSERT INTO `sys_menu` VALUES (109, '在线用户', 2, 1, 'online', 'monitor/online/index', 1, 0, 'C', '0', '0', 'monitor:online:list', 'online', 'admin', '2020-10-26 12:06:01', '', NULL, '在线用户菜单');
 INSERT INTO `sys_menu` VALUES (112, '服务监控', 2, 4, 'server', 'monitor/server/index', 1, 0, 'C', '0', '0', 'monitor:server:list', 'server', 'admin', '2020-10-26 12:06:01', '', NULL, '服务监控菜单');
-INSERT INTO `sys_menu` VALUES (113, '表单构建', 3, 1, 'build', 'tool/build/index', 1, 0, 'C', '0', '0', 'tool:build:list', 'build', 'admin', '2020-10-26 12:06:01', '', NULL, '表单构建菜单');
-INSERT INTO `sys_menu` VALUES (114, '代码生成', 3, 2, 'gen', 'tool/gen/index', 1, 0, 'C', '0', '0', 'tool:gen:list', 'code', 'admin', '2020-10-26 12:06:01', '', NULL, '代码生成菜单');
 INSERT INTO `sys_menu` VALUES (500, '操作日志', 108, 1, 'operlog', 'monitor/operlog/index', 1, 0, 'C', '0', '0', 'monitor:operlog:list', 'form', 'admin', '2020-10-26 12:06:01', '', NULL, '操作日志菜单');
 INSERT INTO `sys_menu` VALUES (501, '登录日志', 108, 2, 'logininfor', 'monitor/logininfor/index', 1, 0, 'C', '0', '0', 'monitor:logininfor:list', 'logininfor', 'admin', '2020-10-26 12:06:01', '', NULL, '登录日志菜单');
 INSERT INTO `sys_menu` VALUES (1001, '用户查询', 100, 1, '', '', 1, 0, 'F', '0', '0', 'system:user:query', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
@@ -696,11 +673,6 @@ INSERT INTO `sys_menu` VALUES (1013, '菜单查询', 102, 1, '', '', 1, 0, 'F', 
 INSERT INTO `sys_menu` VALUES (1014, '菜单新增', 102, 2, '', '', 1, 0, 'F', '0', '0', 'system:menu:add', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1015, '菜单修改', 102, 3, '', '', 1, 0, 'F', '0', '0', 'system:menu:edit', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1016, '菜单删除', 102, 4, '', '', 1, 0, 'F', '0', '0', 'system:menu:remove', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1026, '字典查询', 105, 1, '#', '', 1, 0, 'F', '0', '0', 'system:dict:query', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1027, '字典新增', 105, 2, '#', '', 1, 0, 'F', '0', '0', 'system:dict:add', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1028, '字典修改', 105, 3, '#', '', 1, 0, 'F', '0', '0', 'system:dict:edit', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1029, '字典删除', 105, 4, '#', '', 1, 0, 'F', '0', '0', 'system:dict:remove', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1030, '字典导出', 105, 5, '#', '', 1, 0, 'F', '0', '0', 'system:dict:export', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1031, '参数查询', 106, 1, '#', '', 1, 0, 'F', '0', '0', 'system:config:query', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1032, '参数新增', 106, 2, '#', '', 1, 0, 'F', '0', '0', 'system:config:add', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1033, '参数修改', 106, 3, '#', '', 1, 0, 'F', '0', '0', 'system:config:edit', '#', 'admin', '2020-10-26 12:06:01', '', NULL, '');
@@ -727,24 +699,21 @@ INSERT INTO `sys_menu` VALUES (1081, '商品管理新增', 1079, 2, '#', '', 1, 
 INSERT INTO `sys_menu` VALUES (1082, '商品管理修改', 1079, 3, '#', '', 1, 0, 'F', '0', '0', 'system:productTool:edit', '#', 'admin', '2020-10-27 15:14:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1083, '商品管理删除', 1079, 4, '#', '', 1, 0, 'F', '0', '0', 'system:productTool:remove', '#', 'admin', '2020-10-27 15:14:01', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1084, '商品管理导出', 1079, 5, '#', '', 1, 0, 'F', '0', '0', 'system:productTool:export', '#', 'admin', '2020-10-27 15:14:01', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1085, '轮播图片管理', 1, 3, 'carousel', 'system/carousel/index', 1, 0, 'C', '0', '0', 'system:carousel:list', 'skill', 'admin', '2020-11-02 19:35:32', 'admin', '2020-11-02 19:40:20', '轮播图片管理菜单');
+INSERT INTO `sys_menu` VALUES (1085, '轮播图片管理', 1105, 3, 'carousel', 'system/carousel/index', 1, 0, 'C', '0', '0', 'system:carousel:list', 'skill', 'admin', '2020-11-02 19:35:32', 'admin', '2020-11-09 20:25:22', '轮播图片管理菜单');
 INSERT INTO `sys_menu` VALUES (1086, '轮播图片管理查询', 1085, 1, '#', '', 1, 0, 'F', '0', '0', 'system:carousel:query', '#', 'admin', '2020-11-02 19:35:32', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1087, '轮播图片管理新增', 1085, 2, '#', '', 1, 0, 'F', '0', '0', 'system:carousel:add', '#', 'admin', '2020-11-02 19:35:32', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1088, '轮播图片管理修改', 1085, 3, '#', '', 1, 0, 'F', '0', '0', 'system:carousel:edit', '#', 'admin', '2020-11-02 19:35:32', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1089, '轮播图片管理删除', 1085, 4, '#', '', 1, 0, 'F', '0', '0', 'system:carousel:remove', '#', 'admin', '2020-11-02 19:35:32', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1090, '轮播图片管理导出', 1085, 5, '#', '', 1, 0, 'F', '0', '0', 'system:carousel:export', '#', 'admin', '2020-11-02 19:35:32', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1091, '订单管理', 1, 3, 'orders', 'system/orders/index', 1, 0, 'C', '0', '0', 'system:orders:list', 'date', 'admin', '2020-11-02 19:35:37', 'admin', '2020-11-02 19:41:15', '订单管理菜单');
-INSERT INTO `sys_menu` VALUES (1092, '订单管理查询', 1091, 1, '#', '', 1, 0, 'F', '0', '0', 'system:orders:query', '#', 'admin', '2020-11-02 19:35:37', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1093, '订单管理新增', 1091, 2, '#', '', 1, 0, 'F', '0', '0', 'system:orders:add', '#', 'admin', '2020-11-02 19:35:37', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1094, '订单管理修改', 1091, 3, '#', '', 1, 0, 'F', '0', '0', 'system:orders:edit', '#', 'admin', '2020-11-02 19:35:37', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1095, '订单管理删除', 1091, 4, '#', '', 1, 0, 'F', '0', '0', 'system:orders:remove', '#', 'admin', '2020-11-02 19:35:37', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1096, '订单管理导出', 1091, 5, '#', '', 1, 0, 'F', '0', '0', 'system:orders:export', '#', 'admin', '2020-11-02 19:35:37', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (1097, '产品详细管理', 1, 3, 'picture', 'system/picture/index', 1, 0, 'C', '0', '0', 'system:picture:list', 'form', 'admin', '2020-11-02 19:35:42', 'admin', '2020-11-02 19:39:21', '产品详细管理菜单');
+INSERT INTO `sys_menu` VALUES (1097, '产品详细管理', 1105, 3, 'picture', 'system/picture/index', 1, 0, 'C', '0', '0', 'system:picture:list', 'form', 'admin', '2020-11-02 19:35:42', 'admin', '2020-11-09 20:25:30', '产品详细管理菜单');
 INSERT INTO `sys_menu` VALUES (1098, '产品详细管理查询', 1097, 1, '#', '', 1, 0, 'F', '0', '0', 'system:picture:query', '#', 'admin', '2020-11-02 19:35:42', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1099, '产品详细管理新增', 1097, 2, '#', '', 1, 0, 'F', '0', '0', 'system:picture:add', '#', 'admin', '2020-11-02 19:35:42', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1100, '产品详细管理修改', 1097, 3, '#', '', 1, 0, 'F', '0', '0', 'system:picture:edit', '#', 'admin', '2020-11-02 19:35:42', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1101, '产品详细管理删除', 1097, 4, '#', '', 1, 0, 'F', '0', '0', 'system:picture:remove', '#', 'admin', '2020-11-02 19:35:42', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1102, '产品详细管理导出', 1097, 5, '#', '', 1, 0, 'F', '0', '0', 'system:picture:export', '#', 'admin', '2020-11-02 19:35:42', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (1103, '参数日志管理', 0, 4, 'shop', NULL, 1, 0, 'M', '0', '0', '', 'build', 'admin', '2020-11-09 20:18:28', 'admin', '2020-11-09 20:24:27', '');
+INSERT INTO `sys_menu` VALUES (1104, '角色管理', 0, 1, 'userds', NULL, 1, 0, 'M', '0', '0', '', 'people', 'admin', '2020-11-09 20:22:12', 'admin', '2020-11-09 20:24:33', '');
+INSERT INTO `sys_menu` VALUES (1105, '图片管理', 0, 3, 'pict', NULL, 1, 0, 'M', '0', '0', '', 'clipboard', 'admin', '2020-11-09 20:25:08', 'admin', '2020-11-09 20:26:15', '');
 
 -- ----------------------------
 -- Table structure for sys_notice
@@ -792,7 +761,7 @@ CREATE TABLE `sys_oper_log`  (
   `error_msg` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 233 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 277 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -930,6 +899,50 @@ INSERT INTO `sys_oper_log` VALUES (229, '代码生成', 2, 'com.store.generator.
 INSERT INTO `sys_oper_log` VALUES (230, '代码生成', 8, 'com.store.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', NULL, '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{}', 'null', 0, NULL, '2020-11-05 19:15:49');
 INSERT INTO `sys_oper_log` VALUES (231, '', 0, 'com.store.web.controller.system.SysLoginController.weblogin()', 'POST', 1, NULL, NULL, '/users/login', '127.0.0.1', '内网IP', '{\"admin\":false,\"password\":\"store123\",\"params\":{},\"userName\":\"store123\"}', '{\"msg\":\"用户\'store123\'不存在\",\"code\":\"004\"}', 0, NULL, '2020-11-05 19:47:28');
 INSERT INTO `sys_oper_log` VALUES (232, '', 0, 'com.store.web.controller.system.SysLoginController.weblogin()', 'POST', 1, NULL, NULL, '/users/login', '127.0.0.1', '内网IP', '{\"admin\":false,\"password\":\"weoc123\",\"params\":{},\"userName\":\"weoc123\"}', '{\"msg\":\"用户\'weoc123\'登陆成功！\",\"code\":\"001\",\"user\":{\"user_id\":101,\"userName\":\"weoc123\"}}', 0, NULL, '2020-11-05 19:48:15');
+INSERT INTO `sys_oper_log` VALUES (233, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1091', '127.0.0.1', '内网IP', '{menuId=1091}', '{\"msg\":\"存在子菜单,不允许删除\",\"code\":500}', 0, NULL, '2020-11-09 20:01:25');
+INSERT INTO `sys_oper_log` VALUES (234, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/105', '127.0.0.1', '内网IP', '{menuId=105}', '{\"msg\":\"存在子菜单,不允许删除\",\"code\":500}', 0, NULL, '2020-11-09 20:02:46');
+INSERT INTO `sys_oper_log` VALUES (235, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1092', '127.0.0.1', '内网IP', '{menuId=1092}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:02:55');
+INSERT INTO `sys_oper_log` VALUES (236, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1093', '127.0.0.1', '内网IP', '{menuId=1093}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:02:57');
+INSERT INTO `sys_oper_log` VALUES (237, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1094', '127.0.0.1', '内网IP', '{menuId=1094}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:02:59');
+INSERT INTO `sys_oper_log` VALUES (238, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1095', '127.0.0.1', '内网IP', '{menuId=1095}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:03:01');
+INSERT INTO `sys_oper_log` VALUES (239, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1096', '127.0.0.1', '内网IP', '{menuId=1096}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:03:03');
+INSERT INTO `sys_oper_log` VALUES (240, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1091', '127.0.0.1', '内网IP', '{menuId=1091}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:03:05');
+INSERT INTO `sys_oper_log` VALUES (241, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1030', '127.0.0.1', '内网IP', '{menuId=1030}', '{\"msg\":\"菜单已分配,不允许删除\",\"code\":500}', 0, NULL, '2020-11-09 20:03:15');
+INSERT INTO `sys_oper_log` VALUES (242, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1029', '127.0.0.1', '内网IP', '{menuId=1029}', '{\"msg\":\"菜单已分配,不允许删除\",\"code\":500}', 0, NULL, '2020-11-09 20:03:18');
+INSERT INTO `sys_oper_log` VALUES (243, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1026', '127.0.0.1', '内网IP', '{menuId=1026}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:13:43');
+INSERT INTO `sys_oper_log` VALUES (244, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1027', '127.0.0.1', '内网IP', '{menuId=1027}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:13:46');
+INSERT INTO `sys_oper_log` VALUES (245, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1028', '127.0.0.1', '内网IP', '{menuId=1028}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:13:48');
+INSERT INTO `sys_oper_log` VALUES (246, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1029', '127.0.0.1', '内网IP', '{menuId=1029}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:13:49');
+INSERT INTO `sys_oper_log` VALUES (247, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/1030', '127.0.0.1', '内网IP', '{menuId=1030}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:13:52');
+INSERT INTO `sys_oper_log` VALUES (248, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/105', '127.0.0.1', '内网IP', '{menuId=105}', '{\"msg\":\"菜单已分配,不允许删除\",\"code\":500}', 0, NULL, '2020-11-09 20:13:54');
+INSERT INTO `sys_oper_log` VALUES (249, '菜单管理', 3, 'com.store.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/105', '127.0.0.1', '内网IP', '{menuId=105}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:14:35');
+INSERT INTO `sys_oper_log` VALUES (250, '菜单管理', 1, 'com.store.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"2\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"/shop\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"M\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:18:28');
+INSERT INTO `sys_oper_log` VALUES (251, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"1\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"/shop\",\"children\":[],\"createTime\":1604924308000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1103,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:18:45');
+INSERT INTO `sys_oper_log` VALUES (252, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"1\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"shop\",\"children\":[],\"createTime\":1604924308000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1103,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:18:55');
+INSERT INTO `sys_oper_log` VALUES (253, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"edit\",\"orderNum\":\"7\",\"menuName\":\"参数设置\",\"params\":{},\"parentId\":1103,\"isCache\":\"0\",\"path\":\"config\",\"component\":\"system/config/index\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":106,\"menuType\":\"C\",\"perms\":\"system:config:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:20:26');
+INSERT INTO `sys_oper_log` VALUES (254, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"log\",\"orderNum\":\"9\",\"menuName\":\"日志管理\",\"params\":{},\"parentId\":1103,\"isCache\":\"0\",\"path\":\"log\",\"component\":\"system/log/index\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":108,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:20:37');
+INSERT INTO `sys_oper_log` VALUES (255, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"system\",\"orderNum\":\"1\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1603685161000,\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"修改菜单\'商品管理\'失败，菜单名称已存在\",\"code\":500}', 0, NULL, '2020-11-09 20:20:51');
+INSERT INTO `sys_oper_log` VALUES (256, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"1\",\"menuName\":\"系统参数管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"shop\",\"children\":[],\"createTime\":1604924308000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1103,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:21:10');
+INSERT INTO `sys_oper_log` VALUES (257, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"1\",\"menuName\":\"参数日志管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"shop\",\"children\":[],\"createTime\":1604924308000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1103,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:21:22');
+INSERT INTO `sys_oper_log` VALUES (258, '菜单管理', 1, 'com.store.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"people\",\"orderNum\":\"1\",\"menuName\":\"系统管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"userds\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"M\",\"status\":\"0\"}', '{\"msg\":\"新增菜单\'系统管理\'失败，菜单名称已存在\",\"code\":500}', 0, NULL, '2020-11-09 20:21:56');
+INSERT INTO `sys_oper_log` VALUES (259, '菜单管理', 1, 'com.store.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"people\",\"orderNum\":\"1\",\"menuName\":\"用户管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"userds\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"M\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:22:12');
+INSERT INTO `sys_oper_log` VALUES (260, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"user\",\"orderNum\":\"1\",\"menuName\":\"用户管理\",\"params\":{},\"parentId\":1104,\"isCache\":\"0\",\"path\":\"user\",\"component\":\"system/user/index\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":100,\"menuType\":\"C\",\"perms\":\"system:user:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:22:32');
+INSERT INTO `sys_oper_log` VALUES (261, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"people\",\"orderNum\":\"1\",\"menuName\":\"系统角色管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"userds\",\"children\":[],\"createTime\":1604924532000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1104,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:22:57');
+INSERT INTO `sys_oper_log` VALUES (262, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"system\",\"orderNum\":\"1\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:24:14');
+INSERT INTO `sys_oper_log` VALUES (263, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"system\",\"orderNum\":\"2\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:24:19');
+INSERT INTO `sys_oper_log` VALUES (264, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"build\",\"orderNum\":\"3\",\"menuName\":\"参数日志管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"shop\",\"children\":[],\"createTime\":1604924308000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1103,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:24:27');
+INSERT INTO `sys_oper_log` VALUES (265, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"people\",\"orderNum\":\"1\",\"menuName\":\"角色管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"userds\",\"children\":[],\"createTime\":1604924532000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1104,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:24:33');
+INSERT INTO `sys_oper_log` VALUES (266, '菜单管理', 1, 'com.store.web.controller.system.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"shopping\",\"orderNum\":\"2\",\"menuName\":\"图片管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"pict\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"M\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:25:08');
+INSERT INTO `sys_oper_log` VALUES (267, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"skill\",\"orderNum\":\"3\",\"menuName\":\"轮播图片管理\",\"params\":{},\"parentId\":1105,\"isCache\":\"0\",\"path\":\"carousel\",\"component\":\"system/carousel/index\",\"children\":[],\"createTime\":1604316932000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1085,\"menuType\":\"C\",\"perms\":\"system:carousel:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:25:22');
+INSERT INTO `sys_oper_log` VALUES (268, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"form\",\"orderNum\":\"3\",\"menuName\":\"产品详细管理\",\"params\":{},\"parentId\":1105,\"isCache\":\"0\",\"path\":\"picture\",\"component\":\"system/picture/index\",\"children\":[],\"createTime\":1604316942000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1097,\"menuType\":\"C\",\"perms\":\"system:picture:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:25:30');
+INSERT INTO `sys_oper_log` VALUES (269, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"shopping\",\"orderNum\":\"2\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:25:58');
+INSERT INTO `sys_oper_log` VALUES (270, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"clipboard\",\"orderNum\":\"2\",\"menuName\":\"图片管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"pict\",\"children\":[],\"createTime\":1604924708000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1105,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-09 20:26:15');
+INSERT INTO `sys_oper_log` VALUES (271, '', 0, 'com.store.web.controller.system.SysLoginController.weblogin()', 'POST', 1, NULL, NULL, '/users/login', '127.0.0.1', '内网IP', '{\"admin\":false,\"password\":\"wcl123\",\"params\":{},\"userName\":\"wcl123\"}', '{\"msg\":\"用户\'wcl123\'不存在\",\"code\":\"004\"}', 0, NULL, '2020-11-09 20:31:18');
+INSERT INTO `sys_oper_log` VALUES (272, '', 0, 'com.store.web.controller.system.SysLoginController.weblogin()', 'POST', 1, NULL, NULL, '/users/login', '127.0.0.1', '内网IP', '{\"admin\":false,\"password\":\"weoc123\",\"params\":{},\"userName\":\"weoc123\"}', '{\"msg\":\"用户\'weoc123\'登陆成功！\",\"code\":\"001\",\"user\":{\"user_id\":101,\"userName\":\"weoc123\"}}', 0, NULL, '2020-11-09 20:33:14');
+INSERT INTO `sys_oper_log` VALUES (273, '个人信息', 2, 'com.store.web.controller.system.SysProfileController.updateProfile()', 'PUT', 1, 'admin', NULL, '/system/user/profile', '127.0.0.1', '内网IP', '{\"roles\":[{\"flag\":false,\"roleId\":1,\"admin\":true,\"dataScope\":\"1\",\"params\":{},\"roleSort\":\"1\",\"deptCheckStrictly\":false,\"menuCheckStrictly\":false,\"roleKey\":\"admin\",\"roleName\":\"超级管理员\",\"status\":\"0\"}],\"phonenumber\":\"15212465548\",\"admin\":true,\"loginDate\":1603685161000,\"remark\":\"管理员\",\"delFlag\":\"0\",\"loginIp\":\"127.0.0.1\",\"email\":\"2212121@qq.com\",\"nickName\":\"超级管理员\",\"sex\":\"0\",\"deptId\":103,\"avatar\":\"\",\"dept\":{\"deptName\":\"研发部门\",\"leader\":\"若依\",\"deptId\":103,\"orderNum\":\"1\",\"params\":{},\"parentId\":101,\"children\":[],\"status\":\"0\"},\"params\":{},\"userName\":\"admin\",\"userId\":1,\"createBy\":\"admin\",\"createTime\":1603685161000,\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-12 16:23:52');
+INSERT INTO `sys_oper_log` VALUES (274, '用户管理', 3, 'com.store.web.controller.system.SysUserController.remove()', 'DELETE', 1, 'admin', NULL, '/system/user/2', '127.0.0.1', '内网IP', '{userIds=2}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-12 16:24:23');
+INSERT INTO `sys_oper_log` VALUES (275, '菜单管理', 2, 'com.store.web.controller.system.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"shopping\",\"orderNum\":\"2\",\"menuName\":\"商品管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1603685161000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"1\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-12 16:46:03');
+INSERT INTO `sys_oper_log` VALUES (276, '登录日志', 9, 'com.store.web.controller.monitor.SysLogininforController.clean()', 'DELETE', 1, 'admin', NULL, '/monitor/logininfor/clean', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2020-11-12 17:56:35');
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -982,8 +995,8 @@ CREATE TABLE `sys_role`  (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES (1, '超级管理员', 'admin', 1, '1', 1, 1, '0', '0', 'admin', '2020-10-26 12:06:01', '', NULL, '超级管理员');
-INSERT INTO `sys_role` VALUES (2, '普通角色', 'common', 2, '2', 1, 1, '0', '0', 'admin', '2020-10-26 12:06:01', 'admin', '2020-10-27 12:02:22', '普通角色');
+INSERT INTO `sys_role` VALUES (1, '管理员', 'admin', 1, '1', 1, 1, '0', '0', 'admin', '2020-10-26 12:06:01', '', NULL, '超级管理员');
+INSERT INTO `sys_role` VALUES (2, '客户', 'common', 2, '2', 1, 1, '0', '0', 'admin', '2020-10-26 12:06:01', 'admin', '2020-10-27 12:02:22', '普通角色');
 
 -- ----------------------------
 -- Table structure for sys_role_dept
@@ -1017,10 +1030,8 @@ CREATE TABLE `sys_role_menu`  (
 -- ----------------------------
 INSERT INTO `sys_role_menu` VALUES (2, 1);
 INSERT INTO `sys_role_menu` VALUES (2, 2);
-INSERT INTO `sys_role_menu` VALUES (2, 3);
 INSERT INTO `sys_role_menu` VALUES (2, 100);
 INSERT INTO `sys_role_menu` VALUES (2, 102);
-INSERT INTO `sys_role_menu` VALUES (2, 105);
 INSERT INTO `sys_role_menu` VALUES (2, 106);
 INSERT INTO `sys_role_menu` VALUES (2, 108);
 INSERT INTO `sys_role_menu` VALUES (2, 109);
@@ -1040,11 +1051,6 @@ INSERT INTO `sys_role_menu` VALUES (2, 1013);
 INSERT INTO `sys_role_menu` VALUES (2, 1014);
 INSERT INTO `sys_role_menu` VALUES (2, 1015);
 INSERT INTO `sys_role_menu` VALUES (2, 1016);
-INSERT INTO `sys_role_menu` VALUES (2, 1026);
-INSERT INTO `sys_role_menu` VALUES (2, 1027);
-INSERT INTO `sys_role_menu` VALUES (2, 1028);
-INSERT INTO `sys_role_menu` VALUES (2, 1029);
-INSERT INTO `sys_role_menu` VALUES (2, 1030);
 INSERT INTO `sys_role_menu` VALUES (2, 1031);
 INSERT INTO `sys_role_menu` VALUES (2, 1032);
 INSERT INTO `sys_role_menu` VALUES (2, 1033);
@@ -1096,8 +1102,8 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2020-10-26 12:06:01', 'admin', '2020-10-26 12:06:01', '', NULL, '管理员');
-INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2020-10-26 12:06:01', 'admin', '2020-10-26 12:06:01', '', NULL, '测试员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '超级管理员', '00', '2212121@qq.com', '15212465548', '0', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2020-10-26 12:06:01', 'admin', '2020-10-26 12:06:01', '', '2020-11-12 16:23:52', '管理员');
+INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '2', '127.0.0.1', '2020-10-26 12:06:01', 'admin', '2020-10-26 12:06:01', '', NULL, '测试员');
 INSERT INTO `sys_user` VALUES (100, 108, '测试用户', '测试用户', '00', '28118313814@qq.com', '15203446311', '0', '', '$2a$10$3xvVdkjl3YXUnbbnmZzU4.wYoHN/x4ITqtMzaAPxg9H3Pg6nQW.d2', '0', '2', '', NULL, 'admin', '2020-10-26 20:40:07', '', NULL, NULL);
 INSERT INTO `sys_user` VALUES (101, 108, 'weoc123', 'weoc123', '00', 'qq@qq.com', '12345', '0', '', '$2a$10$l7bPffPjMDQ0t2JSySq3AOfaM04RieOUAMwUoj36sGlDiwuEmakIe', '0', '0', '', NULL, 'store用户', '2020-10-26 20:50:08', 'admin', '2020-10-27 11:54:33', NULL);
 
@@ -1148,12 +1154,13 @@ CREATE TABLE `users`  (
   `userPhoneNumber` char(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `userName`(`userName`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'wo123', 'wo123456', NULL);
 INSERT INTO `users` VALUES (2, 'sto123', 'sto123', NULL);
+INSERT INTO `users` VALUES (3, 'wcl123', 'wcl123', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

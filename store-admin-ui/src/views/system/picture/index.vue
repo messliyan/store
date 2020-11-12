@@ -78,9 +78,15 @@
 
     <el-table v-loading="loading" :data="pictureList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="产品详细唯一标识" align="center" prop="id" />
-      <el-table-column label="产品唯一标识" align="center" prop="productId" />
-      <el-table-column label="产品详细图片" align="center" prop="productPicture" />
+      <el-table-column label="序号" align="center" prop="id" />
+      <el-table-column label="产品名称" align="center" prop="productId" />
+<!--      <el-table-column label="产品详细图片" align="center" prop="productPicture" />-->
+      <el-table-column  label="商品照片地址" align="center" prop="productPicture" >
+        <template slot-scope="scope">
+          <el-image :src="scope.row.productPicture">
+          </el-image>
+        </template>
+      </el-table-column>
       <el-table-column label="产品描述" align="center" prop="intro" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -101,7 +107,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -113,7 +119,7 @@
     <!-- 添加或修改产品详细管理对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="产品唯一标识" prop="productId">
+        <el-form-item label="产品id" prop="productId">
           <el-input v-model="form.productId" placeholder="请输入产品唯一标识" />
         </el-form-item>
         <el-form-item label="产品详细图片" prop="productPicture">

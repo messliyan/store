@@ -1,21 +1,21 @@
 ## 平台简介
 
+模拟小米商场的一个网站 前端有用户端和后台管理员端 后台只有一个
 
-redis-server
-npm run dev
-npm run dev
-
-
-测试用户 weoc123 密码weoc123
-系统管理员 admin admin123
+用户端（vue-store-master）       测试用户 账号weoc123      密码weoc123（可以自己注册 或后台添加）
+后台管理员端（store-admin-ui）  系统管理员  账号admin       密码admin123
  
-
 * 前端采用Vue、Element UI。
-* 后端采用Spring Boot、Spring Security、Redis & Jwt。
-* 权限认证使用Jwt，支持多终端认证系统。
-* 支持加载动态权限菜单，多方式轻松权限控制。
+* 后端采用Spring Boot Redis & Jwt等。
 
-## 内置功能
+## 启动
+### 启动redis和前端工程
+进入 store 目录下 cmd打开终端（IDEA等工具可以直接打开）
+store—>   
+start.bat                             ---运行start.bat  window脚本
 
-1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
-2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
+### 启动后端工程
+store-admin 项目下
+启动 StoreApplication 类
+
+## 功能

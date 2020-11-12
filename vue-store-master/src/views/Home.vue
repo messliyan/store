@@ -16,22 +16,21 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-    <ul>
-      <li>
-        <img height="122px" :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c3b86ede4dd31d7c126d56fbdde4f855.jpg'" alt />
-      </li>
-    </ul>
+
     <!-- 轮播图END -->
     <div class="main-box">
       <div class="main">
+        <ul>
+          <li>
+            <img height="122px" :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c3b86ede4dd31d7c126d56fbdde4f855.jpg'" alt />
+          </li>
+        </ul>
         <!-- 手机商品展示区域 -->
         <div class="phone">
           <div class="box-hd">
             <div class="title">手机</div>
-            <div class="more">
-              <MyMenu :val="2" >
-                <span slot="1" ><router-link  to="/goods">全部商品</router-link></span>
-              </MyMenu>
+            <div class="more" id="more">
+              <span slot="1" ><router-link  to="/goods">全部商品</router-link></span>
             </div>
           </div>
           <div class="box-bd">
@@ -131,7 +130,8 @@ export default {
       protectingShellList: "", // 保护套商品列表
       chargerList: "", //充电器商品列表
       applianceActive: 1, // 家电当前选中的商品分类
-      accessoryActive: 1 // 配件当前选中的商品分类
+      accessoryActive: 1 ,// 配件当前选中的商品分类
+      photoActive: 1, // 家电当前选中的商品分类
     };
   },
   watch: {
@@ -210,6 +210,9 @@ export default {
     // 获取配件模块子组件传过来的数据
     getChildMsg2(val) {
       this.accessoryActive = val;
+    },
+    getChildMsg3(val) {
+      this.photoActive = val;
     },
     // 获取各类商品数据方法封装
     getPromo(categoryName, val, api) {

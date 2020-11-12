@@ -258,12 +258,31 @@ public class WebProductController extends BaseController
             }
 
         }
+        int[] myList=new int[7];
+        if (hashMaps.size()>10){
+            myList[0] = 9;
+            myList[1] = 4;
+            myList[2] = 3;
+            myList[3] = 1;
+            myList[4] = 6;
+            myList[5] = 7;
+            myList[6] = 5;
+        }else
+        {
+            myList[0] = 6;
+            myList[1] = 4;
+            myList[2] = 3;
+            myList[3] = 1;
+            myList[4] = 2;
+            myList[5] = 7;
+            myList[6] = 5;
+
+        }
         List<WebProduct> hashMaps2=new ArrayList<>();
         for (int i=0;i<hashMaps.size();i++){
             if (i>=7)
                 break;
-            Random rand = new Random();
-            hashMaps2.add(hashMaps.get(rand.nextInt(hashMaps.size()) ));
+            hashMaps2.add(hashMaps.get(myList[i]));
         }
         return StoreResult.success("获取首页展示的商品信息成功！","Product",hashMaps2);
     }
