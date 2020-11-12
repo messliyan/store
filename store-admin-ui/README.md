@@ -1,11 +1,9 @@
 ## 开发
 
 ```bash
-# 克隆项目
-git clone https://gitee.com/y_project/RuoYi-Vue
 
 # 进入项目目录
-cd ruoyi-ui
+cd store-admin-ui
 
 # 安装依赖
 npm install
@@ -17,7 +15,6 @@ npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
 
-浏览器访问 http://localhost:80
 
 ## 发布
 

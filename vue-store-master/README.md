@@ -4,20 +4,14 @@
 
 
 ```bash
-1. Clone project
-
-git clone https://github.com/hai-27/vue-store.git
-
 2. Project setup
 
 cd vue-store
 npm install
-cd
+
 3. Compiles and hot-reloads for development
 
-npm run serve
-
-redis-server
+npm run dev
 
 
 4. Compiles and minifies for production
@@ -28,19 +22,16 @@ npm run build
 
 ## 项目简介
 
-本项目前后端分离，前端基于`Vue`+`Vue-router`+`Vuex`+`Element-ui`+`Axios`
+本项目前后端分离，前端基于`Vue`+`Vue-router`+`Vuex`+`Element-ui`
 
 前端包含了11个页面：首页、登录、注册、全部商品、商品详情页、关于我们、我的收藏、购物车、订单结算页面、我的订单以及错误处理页面。
 
 实现了商品的展示、商品分类查询、关键字搜索商品、商品详细信息展示、登录、注册、用户购物车、订单结算、用户订单、用户收藏列表以及错误处理功能。
 
-后端采取了MVC模式，根据前端需要的数据分模块设计了相应的接口、控制层、数据持久层。
-
 
 ## 技术栈
 
-- **前端：**`Vue`+`Vue-router`+`Vuex`+`Element-ui`+`Axios`
-
+- **前端：**`Vue`+`Vue-router`+`Vuex`+`Element-ui`
 
 - **数据库：**`Mysql`
 
@@ -73,8 +64,8 @@ npm run build
 商品详情页主要是对某个商品的详细信息进行展示，用户可以在这里把喜欢的商品加入购物车或收藏列表。
 
 ### 我的购物车
-
 购物车采用vuex实现
+
 ### 订单结算
 
 用户在购物车选择了准备购买的商品后，点击“去结算”按钮，会来到该页面。
