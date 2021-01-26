@@ -36,8 +36,10 @@ Navicat Premium 15-->导入sql
 
 后端项目
 本地mavn 打包
+mvn clean package 
 上传jar包
 运行dockerfile
+
 docker commit
 docker push
 docker run
