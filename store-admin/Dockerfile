@@ -4,7 +4,7 @@ MAINTAINER lijiabin@qq.com
 
 EXPOSE 8888
 
-ADD /yuan-core.jar  yuan-core.jar
+ADD /store-admin.jar  store-admin.jar
 
 ENTRYPOINT ["java", "-jar", "store-admin.jar"]
 
