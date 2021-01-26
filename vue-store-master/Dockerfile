@@ -1,4 +1,4 @@
-FROM circleci/node:latest-browsers
+FROM kkarczmarczyk/node-yarn
 
 WORKDIR /usr/src/app/
 USER root
