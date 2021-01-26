@@ -19,3 +19,29 @@ store-admin 项目下
 启动 StoreApplication 类
 
 ## 功能
+
+## 部署
+edis 运行和安装
+
+基础镜像 jre
+
+mysql数据库
+
+create user`storeAdmin`@`*` identified by'123456';
+
+grant all privileges on *.* to storeAdmin@'%' identified by '123456';
+
+CREATE DATABASE IF NOT EXISTS storedb DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+Navicat Premium 15-->导入sql
+
+后端项目
+本地mavn 打包
+上传jar包
+运行dockerfile
+docker commit
+docker push
+docker run
+
+后端打包
+nginx
+

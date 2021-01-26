@@ -17,7 +17,7 @@ store:
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
-  port: 8088
+  port: 8888
   servlet:
     # 应用的访问路径
     context-path: /
@@ -58,7 +58,7 @@ spring:
   # redis 配置
   redis:
     # 地址
-    host: localhost
+    host: 47.97.231.31
     # 端口，默认为6379
     port: 6379
     # 密码
