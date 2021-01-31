@@ -28,7 +28,7 @@ module.exports = {
   productionSourceMap: false,
   // webpack-dev-server 相关配置
   devServer: {
-    host: '0.0.0.0',
+    host: 'https://messliyan.github.io',
     port: port,
     open: true,
     proxy: {
@@ -40,11 +40,11 @@ module.exports = {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       },
-      'https://messliyan.github.io/prod-api':{
+      '/prod-api':{
         target: `http://47.97.231.31:8888`,
         changeOrigin:true,
         pathRewrite: {
-          ['^' + 'https://messliyan.github.io/prod-api']: ''
+          ['^' + '/prod-api']: ''
         }
       }
     },
