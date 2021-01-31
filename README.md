@@ -39,9 +39,11 @@ Navicat Premium 15-->导入sql
 mvn clean package 
 上传jar包
 运行dockerfile
-
+systemctl start docker
+systemctl start redis
+java -jar store-admin.jar
 docker build -t store/admin .
-docker run -p 8100:8100   -d store/admin
+docker run -p 8888:8888   -d store/admin
 sudo docker login --username=babaaliyum registry.cn-hangzhou.aliyuncs.com
 sudo docker push registry.cn-hangzhou.aliyuncs.com/jiabinli/store-admin-ui
 sudo docker pull registry.cn-hangzhou.aliyuncs.com/jiabinli/store-admin-ui
