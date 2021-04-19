@@ -49,7 +49,7 @@ public class ProductController extends BaseController
         List<Product> list = productService.selectProductList(product);
         for (Product pro:list
         ) {
-            pro.setProductPicture("http://"+IP+":"+port+"/"+pro.getProductPicture());
+            pro.setProductPicture(pro.getProductPicture());
         }
         return getDataTable(list);
     }
