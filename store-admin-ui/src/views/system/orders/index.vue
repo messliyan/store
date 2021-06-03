@@ -10,18 +10,18 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="用户id" prop="userId">
+      <el-form-item label="用户名" prop="useName">
         <el-input
-          v-model="queryParams.userId"
-          placeholder="请输入用户id"
+          v-model="queryParams.useName"
+          placeholder="请输入用户名"
           clearable
           size="small"
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="产品id" prop="productId">
+      <!-- <el-form-item label="产品id" prop="productName">
         <el-input
-          v-model="queryParams.productId"
+          v-model="queryParams.productName"
           placeholder="请输入产品id"
           clearable
           size="small"
@@ -54,7 +54,7 @@
           size="small"
           @keyup.enter.native="handleQuery"
         />
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item>
         <el-button type="cyan" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -63,7 +63,7 @@
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button
+        <!-- <el-button
           type="primary"
           icon="el-icon-plus"
           size="mini"
@@ -80,7 +80,7 @@
           @click="handleUpdate"
           v-hasPermi="['system:orders:edit']"
         >修改</el-button>
-      </el-col>
+      </el-col> -->
       <el-col :span="1.5">
         <el-button
           type="danger"
@@ -91,36 +91,36 @@
           v-hasPermi="['system:orders:remove']"
         >删除</el-button>
       </el-col>
-      <el-col :span="1.5">
+      <!-- <el-col :span="1.5">
         <el-button
           type="warning"
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
           v-hasPermi="['system:orders:export']"
-        >导出</el-button>
+        >导出</el-button> -->
       </el-col>
 	  <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
     <el-table v-loading="loading" :data="ordersList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="订单表示符" align="center" prop="id" />
-      <el-table-column label="订单id" align="center" prop="orderId" />
-      <el-table-column label="用户id" align="center" prop="userId" />
-      <el-table-column label="产品id" align="center" prop="productId" />
+      <el-table-column label="订单标识符" align="center" prop="id" />
+      <el-table-column label="订单编号" align="center" prop="orderId" />
+      <el-table-column label="用户名" align="center" prop="useName" />
+      <el-table-column label="产品名称" align="center" prop="productName" />
       <el-table-column label="产品数量" align="center" prop="productNum" />
       <el-table-column label="产品价格" align="center" prop="productPrice" />
       <el-table-column label="支付时间" align="center" prop="orderTime" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button
+          <!-- <el-button
             size="mini"
             type="text"
             icon="el-icon-edit"
             @click="handleUpdate(scope.row)"
             v-hasPermi="['system:orders:edit']"
-          >修改</el-button>
+          >修改</el-button> -->
           <el-button
             size="mini"
             type="text"
@@ -146,11 +146,11 @@
         <el-form-item label="订单id" prop="orderId">
           <el-input v-model="form.orderId" placeholder="请输入订单id" />
         </el-form-item>
-        <el-form-item label="用户id" prop="userId">
-          <el-input v-model="form.userId" placeholder="请输入用户id" />
+        <el-form-item label="用户id" prop="useName">
+          <el-input v-model="form.useName" placeholder="请输入用户id" />
         </el-form-item>
-        <el-form-item label="产品id" prop="productId">
-          <el-input v-model="form.productId" placeholder="请输入产品id" />
+        <el-form-item label="产品id" prop="productName">
+          <el-input v-model="form.productName" placeholder="请输入产品id" />
         </el-form-item>
         <el-form-item label="产品数量" prop="productNum">
           <el-input v-model="form.productNum" placeholder="请输入产品数量" />
@@ -200,8 +200,8 @@ export default {
         pageNum: 1,
         pageSize: 10,
         orderId: null,
-        userId: null,
-        productId: null,
+        useName: null,
+        productName: null,
         productNum: null,
         productPrice: null,
         orderTime: null
@@ -213,10 +213,10 @@ export default {
         orderId: [
           { required: true, message: "订单id不能为空", trigger: "blur" }
         ],
-        userId: [
+        useName: [
           { required: true, message: "用户id不能为空", trigger: "blur" }
         ],
-        productId: [
+        productName: [
           { required: true, message: "产品id不能为空", trigger: "blur" }
         ],
         productNum: [
@@ -254,8 +254,8 @@ export default {
       this.form = {
         id: null,
         orderId: null,
-        userId: null,
-        productId: null,
+        useName: null,
+        productName: null,
         productNum: null,
         productPrice: null,
         orderTime: null
