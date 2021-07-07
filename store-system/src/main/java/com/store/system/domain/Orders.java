@@ -42,6 +42,11 @@ public class Orders extends BaseEntity
     @Excel(name = "支付时间")
     private Long orderTime;
 
+    private String useName;
+
+    private String productName;
+
+
     public void setId(Long id)
     {
         this.id = id;
@@ -110,6 +115,22 @@ public class Orders extends BaseEntity
         this.userId = userId;
     }
 
+    public String getUseName() {
+        return useName;
+    }
+
+    public void setUseName(String useName) {
+        this.useName = useName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -120,6 +141,8 @@ public class Orders extends BaseEntity
             ", productNum=" + productNum +
             ", productPrice=" + productPrice +
             ", orderTime=" + orderTime +
+            ", useName='" + useName + '\'' +
+            ", productName='" + productName + '\'' +
             '}';
     }
 }

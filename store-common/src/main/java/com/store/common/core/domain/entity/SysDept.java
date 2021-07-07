@@ -189,7 +189,7 @@ public class SysDept extends BaseEntity
             .append("deptName", getDeptName())
             .append("orderNum", getOrderNum())
             .append("leader", getLeader())
-            .append("phone", getPhone())
+            .append("books", getPhone())
             .append("email", getEmail())
             .append("status", getStatus())
             .append("delFlag", getDelFlag())

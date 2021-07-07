@@ -3,9 +3,11 @@ package com.store.system.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.store.common.annotation.Log;
+import org.springframework.beans.factory.annotation.Value;
 import com.store.common.core.controller.BaseController;
 import com.store.common.core.domain.AjaxResult;
 import com.store.common.core.domain.StoreResult;
+import java.net.InetAddress;
 import com.store.common.core.domain.entity.SysDictData;
 import com.store.common.core.page2.WebPageDomain;
 import com.store.common.core.page2.WebTableDataInfo;
@@ -23,6 +25,9 @@ import com.store.system.domain.WebProduct;
 import com.store.system.service.IProductPictureService;
 import com.store.system.service.IProductService;
 import com.store.system.service.ISysDictDataService;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -56,6 +61,8 @@ public class WebProductController extends BaseController
     @Autowired
     private IProductPictureService productPictureService;
 
+    @Value("${server.port}")
+    private int port;
     /**
      * id得到产品细节
      */
@@ -235,6 +242,31 @@ public class WebProductController extends BaseController
 
     }
 
+    /**
+     * 根据商品分类名称获取首页展示的商品信息 0-7
+     */
+    @PostMapping("/getPromoProduct/wx")
+    public StoreResult getPromoProductWx(@RequestBody WebProduct product) throws UnknownHostException {
+        ArrayList hashMaps=new ArrayList<WebProduct>();
+
+        SysDictData  sysDictData=dictDataService.selectDictData(product.getCategoryName());
+        Product product2 =new Product();
+        product2.setCategoryId(sysDictData.getDictSort());
+        List<Product> list = productService.selectProductList(product2);
+        String IP = InetAddress.getLocalHost().getHostAddress();
+
+        for (int i=0;i<list.size();i++){
+            if (i>=7)
+                break;
+            Product product1=list.get(i);
+            hashMaps.add(new WebProduct(product1.getProductId(), product1.getProductName(), product1.getCategoryId(),
+                    product1.getProductTitle(), product1.getProductIntro(),  "http://"+IP+":"+port+"/"+product1.getProductPicture(),
+                    product1.getProductPrice(), product1.getProductSellingPrice(), product1.getProductNum(), product1.getProductSales()));
+
+        }
+        return StoreResult.success("获取首页展示的商品信息成功！","Product",hashMaps);
+
+    }
     /**
      * 根据商品分类名称获取热门商品信息
      */

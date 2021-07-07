@@ -9,6 +9,16 @@
 * 后端采用Spring Boot Redis & Jwt等。
 
 ## 启动
+
+## 运行项目
+cd bin   
+redis-server  
+
+运行 srore-admin   
+ com.store.StoreApplication
+
+  
+
 ### 启动redis和前端工程
 进入 store 目录下 cmd打开终端（IDEA等工具可以直接打开）
 store—>   

@@ -39,7 +39,7 @@ public class CarouselController extends BaseController
     @Value("${server.port}")
     private int port;
     /**
-     * 查询轮播图片管理列表
+     * 查询轮播图片管理列表11
      */
     @PreAuthorize("@ss.hasPermi('system:carousel:list')")
     @GetMapping("/list")
@@ -49,7 +49,7 @@ public class CarouselController extends BaseController
         String IP = InetAddress.getLocalHost().getHostAddress();
         for (Carousel pro:list
         ) {
-            pro.setImgpath("http://"+IP+":"+port+"/"+pro.getImgpath());
+            pro.setImgpath(pro.getImgpath());
         }
         return getDataTable(list);
     }

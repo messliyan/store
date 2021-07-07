@@ -101,7 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 // 对于登录login 验证码captchaImage 允许匿名访问
                 .antMatchers("/login", "/captchaImage", "/users/findUserName","/users/register",
                     "/users/login","/users/login","/product/getPromoProduct","/product/getHotProduct","/res/carousel"
-                        ,"/product/getAllProduct","/product/getCategory","/product/getProductByCategory","/product/getProductBySearch"
+                        ,"/product/getAllProduct","/product/getCategory","/product/**","/product/getProductBySearch"
                 ,"/product/getDetails","/product/getDetailsPicture","/user/order/getOrder","/user/shoppingCart/getShoppingCart"
                     ,"/user/shoppingCart/addShoppingCart","/user/shoppingCart/deleteShoppingCart","/user/shoppingCart/updateShoppingCart"
                 ,"/user/collect/addCollect","/user/collect/getCollect","/user/collect/deleteCollect","/user/order/addOrder").anonymous()
